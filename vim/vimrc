@@ -40,13 +40,12 @@ let mapleader = "\<Space>"
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
-Plug 'flazz/vim-colorschemes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'wincent/command-t'
 
 call plug#end()
 
-colorscheme Tomorrow-Night
+colorscheme base16-tomorrow-night
 
 " Open NERDTree automatically when vim starts on a directory
 autocmd StdinReadPre * let s:std_in=1
