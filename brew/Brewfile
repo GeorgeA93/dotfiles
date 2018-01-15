@@ -1,0 +1,6 @@
+brew "postgresql"
+brew "rbenv"
+brew "ruby-build"
+brew "yarn"
+brew "hub"
+cask "google-chrome"
