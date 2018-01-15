@@ -1,0 +1,18 @@
+[user]
+	name = George Allen
+	email = george.allen93@outlook.com
+[alias]
+	co = checkout
+  s = status
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = $HOME/.gitignore
+	editor = vim
+	autocrlf = input
+[apply]
+	whitespace = nowarn
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
