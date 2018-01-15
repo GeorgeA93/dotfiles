@@ -13,10 +13,6 @@ echo "Setting up zsh"
 ln -svf $dir/zsh/zshrc ~/.zshrc
 ln -svf $dir/zsh/aliases ~/.aliases
 
-# git
-echo "Setting up git"
-ln -svf $dir/git/gitconfig ~/.gitconfig
-
 echo "Installing oh-my-zsh"
 git clone https://www.github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
