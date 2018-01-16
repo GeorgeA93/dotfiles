@@ -31,6 +31,8 @@ set foldlevel=100
 set splitbelow " open new splits to the right and bottom
 set splitright
 set hlsearch
+set guioptions= " hide scroll bars
+set textwidth=80 " Default line length in chars
 
 " Change leader to Space
 let mapleader = "\<Space>"
@@ -53,6 +55,8 @@ Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'bling/vim-airline'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
 
 call plug#end()
 
@@ -95,3 +99,9 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+" Airline config
+let g:airline_theme='dark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 0  " turn off git branch
+highlight clear LineNr
