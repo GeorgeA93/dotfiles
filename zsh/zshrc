@@ -23,3 +23,5 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.aliases
 [ -f ~/.private-env ] && source ~/.private-env
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

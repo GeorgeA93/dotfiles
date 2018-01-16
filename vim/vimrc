@@ -35,17 +35,26 @@ set hlsearch
 " Change leader to Space
 let mapleader = "\<Space>"
 
+" Cycle through buffers
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
+
+" THEME
+colorscheme simplifysimplify-dark
+
 " PLUGINS
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'wincent/command-t'
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-rails'
+Plug 'janko-m/vim-test'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
-
-colorscheme base16-tomorrow-night
 
 " Open NERDTree automatically when vim starts on a directory
 autocmd StdinReadPre * let s:std_in=1
@@ -68,3 +77,21 @@ let NERDTreeDirArrows = 1
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+" vim-test
+nnoremap <silent> <Leader>g :TestFile<CR>
+nnoremap <silent> <Leader>h :TestNearest<CR>
+nnoremap <silent> <Leader>j :TestLast<CR>
+nnoremap <silent> <Leader>k :TestSuite<CR>
+let test#strategy = "iterm"
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
