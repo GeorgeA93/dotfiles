@@ -43,6 +43,7 @@ nnoremap <C-P> :bprev<CR>
 
 " THEME
 colorscheme simplifysimplify-dark
+set guifont=Menlo\ Regular:h14 " increase that font size plz
 
 " PLUGINS
 
@@ -70,9 +71,6 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 " Open NERDTree on file I am editing
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 
-" Close NERDTree when I open a file
-let NERDTreeQuitOnOpen = 1
-
 " Close NERDTree tab if the only remaining window is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -95,7 +93,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Left> :echoe "Use H!"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
@@ -103,5 +101,4 @@ nnoremap <Down> :echoe "Use j"<CR>
 " Airline config
 let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 0  " turn off git branch
 highlight clear LineNr
