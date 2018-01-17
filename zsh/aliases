@@ -19,3 +19,4 @@ alias dc="docker-compose"
 alias dclean="docker rm -f $(docker ps -a -q);docker rmi $(docker images -q)"
 alias rbc="git rebase --continue"
 alias yolo="git push --force-with-lease"
+alias vim='mvim -v'

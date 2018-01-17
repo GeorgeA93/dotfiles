@@ -14,7 +14,7 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 set title
-set mousehide
+set mouse=a " mouse and scrolling plz
 set ruler
 set backspace=indent,eol,start
 set scrolloff=3
@@ -26,13 +26,15 @@ set autowrite " always write
 set autowriteall
 set nobackup " don't write junk files
 set foldenable
-set foldmethod=indent " don't fold on open
+set foldmethod=indent
+set foldlevelstart=99 " Unfold everything when opening file
 set foldlevel=100
 set splitbelow " open new splits to the right and bottom
 set splitright
 set hlsearch
 set guioptions= " hide scroll bars
 set textwidth=80 " Default line length in chars
+set directory=~/.vim/swapfiles//  " Change swapfile location for out of wd
 
 " Change leader to Space
 let mapleader = "\<Space>"
@@ -42,8 +44,17 @@ nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
 " THEME
-colorscheme simplifysimplify-dark
-set guifont=Menlo\ Regular:h14 " increase that font size plz
+set background=dark
+colorscheme solarized
+set guifont=Menlo\ Regular:h16 " increase that font size plz
+set noshowmode " airline does this for us
+set laststatus=2
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " PLUGINS
 
@@ -51,13 +62,18 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'rking/ag.vim'
 Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-airline'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
+Plug 'vim-airline/vim-airline-themes'
+Plug 'danro/rename.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'jgdavey/vim-blockle'
+Plug 'tpope/vim-commentary'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
@@ -98,7 +114,20 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Airline config
-let g:airline_theme='dark'
-let g:airline#extensions#tabline#enabled = 1
-highlight clear LineNr
+" Ag word under cursor
+nnoremap <Leader>a :Ag <C-r><C-w><CR>
+
+" FZF
+nnoremap <silent> <Leader>p :Files<CR>
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_ruby_checkers = ['rubocop']
