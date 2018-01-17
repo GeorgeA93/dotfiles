@@ -1,6 +1,7 @@
 eval "$(rbenv init -)"
 
 export ZSH=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$HOME/dotfiles/zsh/zsh_custom
 export EDITOR='vim'
 
 export GOPATH=$HOME/Developer
@@ -15,7 +16,15 @@ PATH="$PATH:`yarn global bin`"
 PATH=$PATH:$(go env GOPATH)/bin
 export PATH
 
-ZSH_THEME="dallas"
+ZSH_THEME="bullet-train"
+BULLETTRAIN_PROMPT_ORDER=(
+  time
+  dir
+  ruby
+  git
+)
+BULLETTRAIN_PROMPT_SEPARATE_LINE=false
+BULLETTRAIN_PROMPT_CHAR=""
 
 plugins=(git, bundler, brew, gem)
 
