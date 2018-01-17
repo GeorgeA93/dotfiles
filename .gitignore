@@ -1,2 +1,3 @@
 vim/plugged
 vim/swapfiles/*
+!vim/swapfiles/.gitkeep 
