@@ -35,6 +35,8 @@ set hlsearch
 set guioptions= " hide scroll bars
 set textwidth=80 " Default line length in chars
 set directory=~/.vim/swapfiles//  " Change swapfile location for out of wd
+set lazyredraw
+set spell
 
 " Change leader to Space
 let mapleader = "\<Space>"
@@ -74,6 +76,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'jgdavey/vim-blockle'
 Plug 'tpope/vim-commentary'
 Plug 'vim-syntastic/syntastic'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
 
 call plug#end()
 
@@ -100,6 +104,8 @@ nnoremap <silent> <Leader>g :TestFile<CR>
 nnoremap <silent> <Leader>h :TestNearest<CR>
 nnoremap <silent> <Leader>j :TestLast<CR>
 nnoremap <silent> <Leader>k :TestSuite<CR>
+let test#strategy = "vimux"
+let test#ruby#mrspec#options = '-fd'
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -119,7 +125,7 @@ nnoremap <Leader>a :Ag <C-r><C-w><CR>
 " FZF
 nnoremap <silent> <Leader>p :Files<CR>
 
-" Syntastic
+" syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -131,3 +137,12 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/diffocop'
+
+" function to make tmux zoom its runner pane.
+function! VimuxZoomRunner()
+  call VimuxInspectRunner()
+  call system("tmux resize-pane -Z")
+endfunction
+
+" zoom the tmux runner pane
+map <Leader>vz :VimuxZoomRunner<CR>
