@@ -4,8 +4,11 @@ dir=~/dotfiles
 
 # Vim
 echo "Setting up vim"
-ln -svfh $dir/vim ~/.vim
-ln -svf $dir/vim/vimrc ~/.vimrc
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  ln -svf $dir/vim ~/.vim
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  ln -svfh $dir/vim/vimrc ~/.vimrc
+fi
 vim +PlugInstall +:qa # Install plugins
 
 # zsh
