@@ -35,7 +35,6 @@ set hlsearch
 set guioptions= " hide scroll bars
 set textwidth=80 " Default line length in chars
 set directory=~/.vim/swapfiles//  " Change swapfile location for out of wd
-set lazyredraw
 set spell
 
 " Change leader to Space
@@ -105,7 +104,7 @@ nnoremap <silent> <Leader>h :TestNearest<CR>
 nnoremap <silent> <Leader>j :TestLast<CR>
 nnoremap <silent> <Leader>k :TestSuite<CR>
 let test#strategy = "vimux"
-let test#ruby#mrspec#options = '-fd'
+let test#ruby#rspec#options = '-fd'
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -135,8 +134,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/diffocop'
+let g:syntastic_ruby_checkers = ['']
 
 " function to make tmux zoom its runner pane.
 function! VimuxZoomRunner()
