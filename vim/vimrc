@@ -77,6 +77,11 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
+Plug 'sheerun/vim-polyglot'
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'muziqiushan/vim-bufonly'
+Plug 'tpope/vim-endwise'
 
 call plug#end()
 
@@ -144,3 +149,8 @@ endfunction
 
 " zoom the tmux runner pane
 map <Leader>vz :VimuxZoomRunner<CR>
+
+" snippets
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
