@@ -150,6 +150,10 @@ endfunction
 " zoom the tmux runner pane
 map <Leader>vz :VimuxZoomRunner<CR>
 
+" custom vimux commands
+map <Leader>rc :call VimuxRunCommand("clear; rails c")<CR>
+map <Leader>rs :call VimuxRunCommand("clear; rails s")<CR>
+
 " snippets
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
