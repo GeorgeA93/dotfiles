@@ -169,3 +169,10 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 nnoremap <leader>wg :YcmCompleter GoTo<CR>
 nnoremap <leader>wd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>wc :YcmCompleter GoToDeclaration<CR>
+
+" move lines up and down
+nnoremap ,j :<C-u>silent! move-2<CR>==
+nnoremap ,k :<C-u>silent! move+<CR>==
+
+" upcase word
+nnoremap <Leader>u gUiw
