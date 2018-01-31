@@ -2,6 +2,7 @@ set nocompatible
 filetype off
 set number " line numbers
 set history=1000 " lots of history
+set clipboard=unnamed
 set showmode " shows the current mode
 set visualbell " turn that bell off
 syntax on " Give me highlighting
