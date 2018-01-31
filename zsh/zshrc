@@ -16,6 +16,7 @@ PATH="$PATH:`yarn global bin`"
 PATH="$PATH:$(go env GOPATH)/bin"
 PATH="$PATH:$HOME/.rbenv/bin"
 PATH="$PATH:$HOME/.rbenv/shims"
+PATH="$PATH:$HOME/.cargo/bin"
 export PATH
 
 ZSH_THEME="bullet-train"
