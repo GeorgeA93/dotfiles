@@ -177,3 +177,11 @@ nnoremap ,k :<C-u>silent! move+<CR>==
 
 " upcase word
 nnoremap <Leader>u gUiw
+
+" Automatic Filename expansions for commands
+" Directory for current file
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+" Current file name
+cnoremap %f <C-R>=fnameescape(expand('%:t'))<cr>
+" Full path for current file
+cnoremap %a <C-R>=fnameescape(expand('%:p'))<cr>
