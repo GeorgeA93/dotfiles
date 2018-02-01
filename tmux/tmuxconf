@@ -1,6 +1,6 @@
-# change prefex to Ctrl-a
-set prefix C-a
+set -g default-shell /bin/bash
 
+set -g prefix C-a
 unbind-key C-b
 bind-key C-a send-prefix
 
