@@ -41,6 +41,15 @@ set spell
 " Change leader to Space
 let mapleader = "\<Space>"
 
+" fast save
+nmap <leader>w :w!<cr>
+
+" fast close buffer
+map <leader>bd :bd<cr>
+
+" close all buffers
+map <leader>ba :bufdo bd<cr>
+
 " Cycle through buffers
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
