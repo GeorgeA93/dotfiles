@@ -84,6 +84,7 @@ Plug 'SirVer/ultisnips'
 Plug 'muziqiushan/vim-bufonly'
 Plug 'tpope/vim-endwise'
 Plug 'ryanss/vim-hackernews'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
