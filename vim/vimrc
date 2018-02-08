@@ -51,7 +51,7 @@ map <leader>bd :bd<cr>
 map <leader>ba :bufdo bd<cr>
 
 " Cycle through buffers
-nnoremap <C-N> :bnext<CR>
+nnoremap <C-M> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
 " THEME
