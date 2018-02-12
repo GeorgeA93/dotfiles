@@ -131,9 +131,9 @@ nnoremap <C-l> <C-w>l
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use H!"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+nnoremap <Right> :echoe "Use l!"<CR>
+nnoremap <Up> :echoe "Use k!"<CR>
+nnoremap <Down> :echoe "Use j!"<CR>
 
 " Ag word under cursor
 nnoremap <Leader>a :Ag <C-r><C-w><CR>
@@ -206,3 +206,6 @@ else
 endif
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
+
+nnoremap <leader>e :e! $MYVIMRC<CR>
+autocmd! bufwritepost $MYVIMRC source $MYVIMRC
