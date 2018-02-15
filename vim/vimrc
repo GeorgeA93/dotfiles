@@ -94,6 +94,7 @@ Plug 'muziqiushan/vim-bufonly'
 Plug 'tpope/vim-endwise'
 Plug 'ryanss/vim-hackernews'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -209,3 +210,7 @@ endif
 
 nnoremap <leader>e :e! $MYVIMRC<CR>
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+
+let g:polyglot_disabled = ['go']
+let g:go_fmt_command = "goimports"
+
