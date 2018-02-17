@@ -5,6 +5,7 @@ export EDITOR='vim'
 export GOPATH=$HOME/Developer
 
 export TERM=xterm-256color
+export DOCKERID=gallen93
 
 PATH=""
 PATH="$PATH:/usr/local/bin"
