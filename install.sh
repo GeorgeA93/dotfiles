@@ -2,6 +2,18 @@
 
 dir=~/dotfiles
 
+# brew
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  echo -n "Install Brew? (y/n)? "
+  read answer
+  if echo "$answer" | grep -iq "^y" ;then
+    brew tap homebrew/bundle
+    cd brew
+    brew bundle
+    cd ..
+  fi
+fi
+
 # Vim
 echo "Setting up vim"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -26,3 +38,4 @@ TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
 if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
   chsh -s $(grep /zsh$ /etc/shells | tail -1)
 fi
+
