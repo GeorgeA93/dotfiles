@@ -18,17 +18,10 @@ PATH="$PATH:$(go env GOPATH)/bin"
 PATH="$PATH:$HOME/.rbenv/bin"
 PATH="$PATH:$HOME/.rbenv/shims"
 PATH="$PATH:$HOME/.cargo/bin"
+PATH="$PATH:/usr/local/share/dotnet"
 export PATH
 
-ZSH_THEME="bullet-train"
-BULLETTRAIN_PROMPT_ORDER=(
-  time
-  dir
-  ruby
-  git
-)
-BULLETTRAIN_PROMPT_SEPARATE_LINE=false
-BULLETTRAIN_PROMPT_CHAR=""
+ZSH_THEME="refined"
 
 plugins=(git, bundler, brew, gem)
 
