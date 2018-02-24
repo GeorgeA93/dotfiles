@@ -24,3 +24,4 @@ alias tks="tmux kill-server"
 alias tkt="tmux kill-session -t"
 alias t="tmux"
 alias ts="tmux source-file ~/.tmux.conf"
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
