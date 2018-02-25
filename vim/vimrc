@@ -1,5 +1,5 @@
 set nocompatible
-filetype off
+filetype on
 set number " line numbers
 set history=1000 " lots of history
 set clipboard=unnamed
@@ -148,11 +148,12 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 map <F5> :SyntasticCheck<CR>
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_ruby_checkers = ['']
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_cs_checkers=['syntax', 'semantic', 'issues']
 
 " function to make tmux zoom its runner pane.
 function! VimuxZoomRunner()
@@ -213,4 +214,3 @@ autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
 let g:polyglot_disabled = ['go']
 let g:go_fmt_command = "goimports"
-
