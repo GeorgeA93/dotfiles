@@ -1,5 +1,5 @@
 set nocompatible
-filetype on
+filetype plugin on
 set number " line numbers
 set history=1000 " lots of history
 set clipboard=unnamed
@@ -95,6 +95,7 @@ Plug 'tpope/vim-endwise'
 Plug 'ryanss/vim-hackernews'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'fatih/vim-go'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
