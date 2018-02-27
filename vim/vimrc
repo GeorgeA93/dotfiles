@@ -222,5 +222,4 @@ autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 let g:polyglot_disabled = ['go']
 let g:go_fmt_command = "goimports"
 
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>ha <Esc>:call ToggleHardMode()<CR>
