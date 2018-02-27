@@ -1,6 +1,6 @@
 set nocompatible
 filetype on
-set number " line numbers
+set number relativenumber " line numbers
 set history=1000 " lots of history
 set clipboard=unnamed
 set showmode " shows the current mode
@@ -45,10 +45,10 @@ let mapleader = "\<Space>"
 nmap <leader>w :w!<cr>
 
 " fast close buffer
-map <leader>bd :bd<cr>
+map <leader>bd :Bdelete<cr>
 
 " close all buffers
-map <leader>ba :bufdo bd<cr>
+map <leader>ba :bufdo :Bdelete<cr>
 
 " Cycle through buffers
 nnoremap <C-M> :bnext<CR>
@@ -71,6 +71,8 @@ let g:airline_powerline_fonts = 1
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'easymotion/vim-easymotion'
+Plug 'wikitopian/hardmode'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-rails'
@@ -95,6 +97,11 @@ Plug 'tpope/vim-endwise'
 Plug 'ryanss/vim-hackernews'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'fatih/vim-go'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'moll/vim-bbye'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 call plug#end()
 
@@ -214,3 +221,6 @@ autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
 let g:polyglot_disabled = ['go']
 let g:go_fmt_command = "goimports"
+
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>ha <Esc>:call ToggleHardMode()<CR>
