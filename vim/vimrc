@@ -1,5 +1,5 @@
 set nocompatible
-filetype on
+filetype plugin on
 set number relativenumber " line numbers
 set history=1000 " lots of history
 set clipboard=unnamed
@@ -102,6 +102,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'moll/vim-bbye'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
