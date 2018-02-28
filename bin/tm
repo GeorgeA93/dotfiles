@@ -11,7 +11,15 @@ select opt in "${options[@]}"
 do
   case $opt in
       "Work")
-        tmux new -s "😎 " \; split-window -v \;
+        session="😎 "
+        tmux new-session -d -s $session
+        tmux new-window -t $session:0 -n "PS 💸"
+        tmux selectp -t 1
+        tmux send-keys "cd ~/Dev/payments-service && vim ." C-m
+        tmux splitw -v -p 35
+        tmux send-keys "cd ~/Dev/payments-service" C-m
+        tmux new-window -t $session:1 -n "BO 🏦"
+        tmux attach-session -t $session 
         break
         ;;
       "Home")
