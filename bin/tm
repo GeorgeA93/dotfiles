@@ -1,0 +1,30 @@
+#!/bin/sh
+
+[ "$TMUX" == "" ] || exit 0
+
+PS3="Please choose: "
+options=($(tmux list-sessions -F "#S" 2>/dev/null) "Work" "Home" "zsh")
+echo "Available"
+echo "------------"
+echo " "
+select opt in "${options[@]}"
+do
+  case $opt in
+      "Work")
+        tmux new -s "😎 " \; split-window -v \;
+        break
+        ;;
+      "Home")
+        echo "Get a job"
+        break
+        ;;
+      "zsh")
+        zsh --login
+        break
+        ;;
+      *)
+        tmux attach-session -t $opt
+        break
+        ;;
+  esac
+done
