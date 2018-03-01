@@ -103,6 +103,7 @@ Plug 'tpope/vim-repeat'
 Plug 'moll/vim-bbye'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-dispatch'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
