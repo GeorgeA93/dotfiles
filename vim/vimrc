@@ -1,6 +1,6 @@
 set nocompatible
 filetype plugin on
-set number relativenumber " line numbers
+set number " line numbers
 set history=1000 " lots of history
 set clipboard=unnamed
 set showmode " shows the current mode
