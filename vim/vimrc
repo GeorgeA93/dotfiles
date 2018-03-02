@@ -230,3 +230,5 @@ let g:polyglot_disabled = ['go']
 let g:go_fmt_command = "goimports"
 
 nnoremap <leader>ha <Esc>:call ToggleHardMode()<CR>
+let g:NERDTreeLimitedSyntax = 1
+let g:NERDTreeHighlightCursorline = 0
