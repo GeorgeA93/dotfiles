@@ -54,6 +54,10 @@ map <leader>ba :bufdo :Bdelete<cr>
 nnoremap <C-M> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
+" scroll the viewport faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
 " THEME
 set background=dark
 colorscheme solarized
