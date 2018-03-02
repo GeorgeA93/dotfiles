@@ -105,7 +105,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'moll/vim-bbye'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-dispatch'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -232,3 +231,4 @@ let g:go_fmt_command = "goimports"
 nnoremap <leader>ha <Esc>:call ToggleHardMode()<CR>
 let g:NERDTreeLimitedSyntax = 1
 let g:NERDTreeHighlightCursorline = 0
+set nornu
