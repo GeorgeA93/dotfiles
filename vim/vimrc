@@ -108,6 +108,7 @@ Plug 'moll/vim-bbye'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-dispatch'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
 
