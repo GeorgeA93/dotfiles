@@ -100,7 +100,6 @@ Plug 'muziqiushan/vim-bufonly'
 Plug 'tpope/vim-endwise'
 Plug 'ryanss/vim-hackernews'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'fatih/vim-go'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -108,7 +107,28 @@ Plug 'moll/vim-bbye'
 Plug 'tpope/vim-dispatch'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
+Plug 'https://github.com/fatih/vim-go', {'for': 'go'}
+    let g:go_fmt_fail_silently = 1
+    let g:go_fmt_command = 'goimports'
+    let g:go_highlight_structs = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_textobj_enabled = 0
+    augroup vim_go
+        autocmd!
+        autocmd FileType go nmap <Leader>gx <Plug>(go-run)
+        autocmd FileType go nmap <Leader>gb <Plug>(go-build)
+        autocmd FileType go nmap <Leader>ge <Plug>(go-whicherrs)
+        autocmd FileType go nmap <Leader>gt <Plug>(go-test)
+        autocmd FileType go nmap <Leader>gc <Plug>(go-coverage)
+        autocmd FileType go nmap <Leader>gf <Plug>(go-referrers)
+        autocmd FileType go nmap <Leader>gi <Plug>(go-implements)
+        autocmd FileType go nmap <Leader>gr <Plug>(go-rename)
+        autocmd FileType go nmap <Leader>gdd <Plug>(go-def)
+        autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
+        autocmd FileType go nmap <Leader>gdb <Plug>(go-def-tab)
+        autocmd BufEnter *.go setlocal fdm=indent
+    augroup END
 call plug#end()
 
 " Open NERDTree automatically when vim starts on a directory
@@ -226,7 +246,6 @@ nnoremap <leader>e :e! $MYVIMRC<CR>
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
 let g:polyglot_disabled = ['go']
-let g:go_fmt_command = "goimports"
 
 nnoremap <leader>ha <Esc>:call ToggleHardMode()<CR>
 let g:NERDTreeLimitedSyntax = 1
