@@ -58,6 +58,9 @@ nnoremap <C-P> :bprev<CR>
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+" copy whole file
+nnoremap <leader>ya :%y<CR>
+
 " THEME
 set background=dark
 colorscheme solarized
