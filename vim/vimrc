@@ -37,6 +37,8 @@ set guioptions= " hide scroll bars
 set textwidth=80 " Default line length in chars
 set directory=~/.vim/swapfiles//  " Change swapfile location for out of wd
 set spell
+set list
+set listchars=tab:·\ ,trail:˽
 
 " Change leader to Space
 let mapleader = "\<Space>"
@@ -207,7 +209,7 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_checkers = []
 let g:syntastic_cs_checkers=['syntax', 'semantic', 'issues']
 
 " function to make tmux zoom its runner pane.
