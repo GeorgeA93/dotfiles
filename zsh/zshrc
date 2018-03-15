@@ -23,6 +23,7 @@ PATH="$PATH:$DOTFILES/bin"
 export PATH
 
 ZSH_THEME="refined"
+KEYTIMEOUT=1
 
 plugins=(git, bundler, brew, gem)
 
