@@ -32,6 +32,14 @@ ln -svf $dir/zsh/aliases ~/.aliases
 echo "Setting up tmux"
 ln -svf $dir/tmux/tmuxconf ~/.tmux.conf
 
+# kitty
+echo "Setting up kitty"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  ln -svf $dir/kitty/ ~/.config/kitty
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  ln -svf $dir/kitty/ ~/Library/Preferences/
+fi
+
 echo "Installing oh-my-zsh"
 git clone https://www.github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')

@@ -81,6 +81,7 @@ let g:airline_powerline_fonts = 1
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'wikitopian/hardmode'
 Plug 'scrooloose/nerdtree'
