@@ -35,9 +35,10 @@ ln -svf $dir/tmux/tmuxconf ~/.tmux.conf
 # kitty
 echo "Setting up kitty"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  ln -svf $dir/kitty/ ~/.config/kitty
+  ln -svf $dir/kitty/kitty.conf ~/.config/kitty/kitty.conf
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  ln -svf $dir/kitty/ ~/Library/Preferences/
+  mkdir ~/Library/Preferences/kitty
+  ln -svf $dir/kitty/kitty.conf ~/Library/Preferences/kitty/kitty.conf
 fi
 
 echo "Installing oh-my-zsh"
