@@ -27,3 +27,4 @@ alias ts="tmux source-file ~/.tmux.conf"
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
+alias path="echo $PATH | tr ':' '\n'"
