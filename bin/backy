@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+require "dropbox_api"
+
+file = ARGV[0]
+destination_path = ARGV[1] || "/backup"
+if file.nil?
+  puts "Please supply a file to backup"
+  return
+end
+
+file_contents = IO.read(file)
+remote_path = "#{destination_path}/#{file}"
+
+puts "Backing up #{file} which " \
+     "contains #{file_contents.length} bytes " \
+     "to #{remote_path}"
+
+client = DropboxApi::Client.new
+client.upload(remote_path, file_contents)
+
