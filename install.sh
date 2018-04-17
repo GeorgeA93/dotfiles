@@ -33,18 +33,26 @@ echo "Setting up tmux"
 ln -svf $dir/tmux/tmuxconf ~/.tmux.conf
 
 # kitty
-echo "Setting up kitty"
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  ln -svf $dir/kitty/kitty.conf ~/.config/kitty/kitty.conf
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  mkdir ~/Library/Preferences/kitty
-  ln -svf $dir/kitty/kitty.conf ~/Library/Preferences/kitty/kitty.conf
+echo -n "Configure Kitty? (y/n)? "
+read answer
+if echo "$answer" | grep -iq "^y" ;then
+  echo "Setting up kitty"
+  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    ln -svf $dir/kitty/kitty.conf ~/.config/kitty/kitty.conf
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    mkdir ~/Library/Preferences/kitty
+    ln -svf $dir/kitty/kitty.conf ~/Library/Preferences/kitty/kitty.conf
+  fi
 fi
 
-echo "Installing oh-my-zsh"
-git clone https://www.github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
-if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
-  chsh -s $(grep /zsh$ /etc/shells | tail -1)
+echo -n "Configure oh-my-zsh? (y/n)? "
+read answer
+if echo "$answer" | grep -iq "^y" ;then
+  echo "Installing oh-my-zsh"
+  git clone https://www.github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+  TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+  if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
+    chsh -s $(grep /zsh$ /etc/shells | tail -1)
+  fi
 fi
 
