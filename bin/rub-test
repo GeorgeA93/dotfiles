@@ -1,0 +1,15 @@
+#!/usr/bin/ruby
+
+puts "this is a ruby test"
+hash = {
+  foo: 1,
+  bar: 2,
+}
+
+puts hash
+
+def bar
+  puts "bar was called"
+end
+
+bar
