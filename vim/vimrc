@@ -212,6 +212,7 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_ruby_checkers = []
+let g:syntastic_yaml_checkers = []
 let g:syntastic_cs_checkers=['syntax', 'semantic', 'issues']
 
 " function to make tmux zoom its runner pane.
