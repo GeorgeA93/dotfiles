@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require "dropbox_api"
 
+#TODO Support uploading whole directories
 file = ARGV[0]
 destination_path = ARGV[1] || "/backup"
 if file.nil?
