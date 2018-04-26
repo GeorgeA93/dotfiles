@@ -8,6 +8,8 @@ export GOPATH=$HOME/Developer
 export TERM=xterm-256color
 export DOCKERID=gallen93
 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
 PATH=""
 PATH="$PATH:/usr/local/bin"
 PATH="$PATH:/usr/bin"
