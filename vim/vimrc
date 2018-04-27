@@ -70,7 +70,6 @@ colorscheme solarized
 set guifont=Menlo\ Regular:h16 " increase that font size plz
 set noshowmode
 set laststatus=2
-set showtabline=2
 
 let g:lightline = {
       \ 'colorscheme': 'solarized',
@@ -108,17 +107,14 @@ Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'muziqiushan/vim-bufonly'
 Plug 'tpope/vim-endwise'
-Plug 'ryanss/vim-hackernews'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-dispatch'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'https://github.com/fatih/vim-go', {'for': 'go'}
 Plug 'itchyny/lightline.vim'
-Plug 'ap/vim-buftabline'
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_structs = 1
@@ -268,22 +264,9 @@ cnoremap %f <C-R>=fnameescape(expand('%:t'))<cr>
 " Full path for current file
 cnoremap %a <C-R>=fnameescape(expand('%:p'))<cr>
 
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-:autocmd InsertEnter * set cul
-:autocmd InsertLeave * set nocul
-
 nnoremap <leader>e :e! $MYVIMRC<CR>
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
 let g:polyglot_disabled = ['go']
 
 nnoremap <leader>ha <Esc>:call ToggleHardMode()<CR>
-let g:NERDTreeLimitedSyntax = 1
-let g:NERDTreeHighlightCursorline = 0
-set nornu
