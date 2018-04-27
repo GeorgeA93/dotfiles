@@ -70,17 +70,12 @@ colorscheme solarized
 set guifont=Menlo\ Regular:h16 " increase that font size plz
 set noshowmode
 set laststatus=2
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
 
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
 " PLUGINS
 
 call plug#begin('~/.vim/plugged')
@@ -114,7 +109,8 @@ Plug 'tpope/vim-repeat'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-dispatch'
 Plug 'https://github.com/fatih/vim-go', {'for': 'go'}
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_structs = 1
