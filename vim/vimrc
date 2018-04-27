@@ -68,15 +68,13 @@ nnoremap <leader>ya :%y<CR>
 set background=dark
 colorscheme solarized
 set guifont=Menlo\ Regular:h16 " increase that font size plz
-set noshowmode " airline does this for us
+set noshowmode
 set laststatus=2
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline_powerline_fonts = 1
+set showtabline=2
 
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
 " PLUGINS
 
 call plug#begin('~/.vim/plugged')
@@ -90,9 +88,7 @@ Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'bling/vim-airline'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
-Plug 'vim-airline/vim-airline-themes'
 Plug 'danro/rename.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jgdavey/vim-blockle'
@@ -112,9 +108,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-dispatch'
-Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'https://github.com/fatih/vim-go', {'for': 'go'}
+Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-buftabline'
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_structs = 1
