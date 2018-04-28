@@ -65,13 +65,9 @@ nnoremap <C-y> 3<C-y>
 nnoremap <leader>ya :%y<CR>
 
 " THEME
-set background=dark
-colorscheme solarized
-set guifont=Menlo\ Regular:h16 " increase that font size plz
 set noshowmode
 set laststatus=2
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+let g:airline_theme='base16'
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
@@ -111,6 +107,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'https://github.com/fatih/vim-go', {'for': 'go'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'chriskempson/base16-vim'
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_structs = 1
@@ -266,3 +263,8 @@ autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 let g:polyglot_disabled = ['go']
 
 nnoremap <leader>ha <Esc>:call ToggleHardMode()<CR>
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
