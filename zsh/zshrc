@@ -22,6 +22,7 @@ PATH="$PATH:$HOME/.rbenv/bin"
 PATH="$PATH:$HOME/.rbenv/shims"
 PATH="$PATH:$HOME/.cargo/bin"
 PATH="$PATH:$DOTFILES/bin"
+PATH="$PATH:/Library/Frameworks/Mono.framework/Versions/Current/Commands"
 export PATH
 
 BASE16_SHELL=$DOTFILES/base16-shell/
