@@ -1,7 +1,8 @@
+eval "$(hub alias -s)"
+
 alias cl="clear"
 alias cp="cp"
 alias g="git"
-eval "$(hub alias -s)"
 alias be="bundle exec"
 alias gs="git status"
 alias gp="git push"
