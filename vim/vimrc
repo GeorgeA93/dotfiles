@@ -85,7 +85,7 @@ Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --cs-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --cs-completer --rust-completer' }
 Plug 'danro/rename.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jgdavey/vim-blockle'
