@@ -82,7 +82,7 @@ Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --cs-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --cs-completer --rust-completer' }
 Plug 'danro/rename.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jgdavey/vim-blockle'
@@ -101,6 +101,7 @@ Plug 'tpope/vim-repeat'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-dispatch'
 Plug 'https://github.com/fatih/vim-go', {'for': 'go'}
+Plug 'rust-lang/rust.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
@@ -111,6 +112,8 @@ let g:go_highlight_structs = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_textobj_enabled = 0
+
+let g:rustfmt_autosave = 1
 
 function! ShellCommandSeperator()
   if empty(matchstr($SHELL, 'fish'))
@@ -243,7 +246,7 @@ cnoremap %a <C-R>=fnameescape(expand('%:p'))<cr>
 nnoremap <leader>e :e! $MYVIMRC<CR>
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
-let g:polyglot_disabled = ['go']
+let g:polyglot_disabled = ['go', 'rust']
 
 nnoremap <leader>ha <Esc>:call ToggleHardMode()<CR>
 
