@@ -197,10 +197,12 @@ nnoremap <Leader>a :Ag <C-r><C-w><CR>
 
 " FZF
 nnoremap <silent> <Leader>p :Files<CR>
+nmap ; :Buffers<CR>
 
 " ALE
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
+\   'rust': ['rustfmt'],
 \}
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
