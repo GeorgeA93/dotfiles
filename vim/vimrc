@@ -87,7 +87,6 @@ Plug 'danro/rename.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jgdavey/vim-blockle'
 Plug 'tpope/vim-commentary'
-Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
 Plug 'sheerun/vim-polyglot'
@@ -105,6 +104,7 @@ Plug 'https://github.com/fatih/vim-go', {'for': 'go'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
+Plug 'w0rp/ale'
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_structs = 1
@@ -195,20 +195,6 @@ nnoremap <Leader>a :Ag <C-r><C-w><CR>
 
 " FZF
 nnoremap <silent> <Leader>p :Files<CR>
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-map <F5> :SyntasticCheck<CR>
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_ruby_checkers = []
-let g:syntastic_yaml_checkers = []
-let g:syntastic_cs_checkers=['syntax', 'semantic', 'issues']
 
 " function to make tmux zoom its runner pane.
 function! VimuxZoomRunner()
