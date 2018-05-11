@@ -199,6 +199,16 @@ nnoremap <Leader>a :Ag <C-r><C-w><CR>
 " FZF
 nnoremap <silent> <Leader>p :Files<CR>
 
+" ALE
+let g:ale_fixers = {
+\   'ruby': ['rubocop'],
+\}
+let g:ale_fix_on_save = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_column_always = 1
+highlight ALEWarning cterm=undercurl
+highlight ALEError cterm=undercurl
+
 " function to make tmux zoom its runner pane.
 function! VimuxZoomRunner()
   call VimuxInspectRunner()
