@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+dotfiles = ENV["DOTFILES"]
+theme_dir = File.join(dotfiles, "base16-shell/scripts")
+themes = `ls #{theme_dir}`.split("\n")
+
+themes.each do |theme|
+  puts "Testing theme: #{theme}"
+  path = File.join(theme_dir, theme)
+  `eval$(#{path})`
+  puts "Keep this theme? y/n"
+  keep = gets.chomp
+  if keep == "y"
+    return
+  end
+end
