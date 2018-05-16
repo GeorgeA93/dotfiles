@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
-require "dropbox_api"
+# frozen_string_literal: true
 
-#TODO Support uploading whole directories
+require 'dropbox_api'
+
+# TODO: Support uploading whole directories
 file = ARGV[0]
-destination_path = ARGV[1] || "/backup"
+destination_path = ARGV[1] || '/backup'
 if file.nil?
-  puts "Please supply a file to backup"
+  puts 'Please supply a file to backup'
   return
 end
 
@@ -18,4 +20,3 @@ puts "Backing up #{file} which " \
 
 client = DropboxApi::Client.new
 client.upload(remote_path, file_contents)
-
