@@ -36,6 +36,7 @@ set list
 set listchars=tab:·\ ,trail:˽
 set timeoutlen=1000 ttimeoutlen=0
 set lazyredraw
+set updatetime=100 " faster git gutter updates
 
 " Change leader to Space
 let g:mapleader = "\<Space>"
@@ -105,6 +106,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'w0rp/ale'
+Plug 'airblade/vim-gitgutter'
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_structs = 1
