@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 RUN apt update
 
 # Add custom repos
-RUN apt-get install software-properties-common -y
+RUN apt install software-properties-common -y
 RUN add-apt-repository \
     ppa:jonathonf/vim
 
@@ -15,4 +15,5 @@ RUN apt update
 RUN apt install -y \
     git \
     vim \
+    man \
 
