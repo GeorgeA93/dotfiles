@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd $DOTFILES/sandbox
+docker build -t dev .
+docker-compose up -d
