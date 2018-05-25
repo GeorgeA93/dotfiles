@@ -35,8 +35,13 @@ ln -svf $dir/tmux/tmuxconf ~/.tmux.conf
 
 # kitty
 echo -n "Configure Kitty? (y/n)? "
-read answer
-if echo "$answer $arg" | grep -iq "^y" ;then
+if echo "$arg" | grep -iq "^y" ;then
+  answer=$arg
+else
+  read answer
+fi
+
+if echo "$answer" | grep -iq "^y" ;then
   echo "Setting up kitty"
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
     ln -svf $dir/kitty/kitty.conf ~/.config/kitty/kitty.conf
@@ -47,8 +52,13 @@ if echo "$answer $arg" | grep -iq "^y" ;then
 fi
 
 echo -n "Configure oh-my-zsh? (y/n)? "
-read answer
-if echo "$answer $arg" | grep -iq "^y" ;then
+if echo "$arg" | grep -iq "^y" ;then
+  answer=$arg
+else
+  read answer
+fi
+
+if echo "$answer" | grep -iq "^y" ;then
   echo "Installing oh-my-zsh"
   git clone https://www.github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
