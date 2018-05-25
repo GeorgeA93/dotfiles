@@ -1,4 +1,5 @@
 #!/bin/bash
+arg=$1
 
 dir=~/dotfiles
 
@@ -35,7 +36,7 @@ ln -svf $dir/tmux/tmuxconf ~/.tmux.conf
 # kitty
 echo -n "Configure Kitty? (y/n)? "
 read answer
-if echo "$answer" | grep -iq "^y" ;then
+if echo "$answer $arg" | grep -iq "^y" ;then
   echo "Setting up kitty"
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
     ln -svf $dir/kitty/kitty.conf ~/.config/kitty/kitty.conf
@@ -47,7 +48,7 @@ fi
 
 echo -n "Configure oh-my-zsh? (y/n)? "
 read answer
-if echo "$answer" | grep -iq "^y" ;then
+if echo "$answer $arg" | grep -iq "^y" ;then
   echo "Installing oh-my-zsh"
   git clone https://www.github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')

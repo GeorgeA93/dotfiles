@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=utf-8
 filetype plugin on
 set number " line numbers
 set clipboard=unnamed
