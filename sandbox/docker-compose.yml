@@ -2,5 +2,5 @@
 version: '3'
 services:
   dev:
-    image: ubuntu:16.04
+    image: dev
     tty: true
