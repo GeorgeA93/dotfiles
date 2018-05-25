@@ -10,4 +10,5 @@ install.sh
 
 If you need private stuff. Stick it in `~/.private-env` and it will be sourced for you.
 
-`sandbox` will connect you to a ubuntu shell where you can do things in an isolation.
+`sandbox-create` will create a docker container environment for sandbox/development use.
+`sandbox` will connect you to said container
