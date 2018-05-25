@@ -22,7 +22,9 @@ RUN apt install -y \
     curl \
     libssl-dev \
     libreadline-dev \
-    zlib1g-dev
+    zlib1g-dev \
+    silversearcher-ag \
+    tmux
 
 RUN useradd -m grg && usermod -aG sudo grg
 USER grg
@@ -38,3 +40,4 @@ RUN git clone https://github.com/GeorgeA93/dotfiles.git
 RUN ./dotfiles/install.sh
 RUN git clone https://www.github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 RUN echo "export TERM=xterm-color" >> ~/.private-env
+RUN echo "export SHELL=/bin/zsh" >> ~/.private-env
