@@ -1,0 +1,6 @@
+---
+version: '3'
+services:
+  dev:
+    image: ubuntu:16.04
+    tty: true

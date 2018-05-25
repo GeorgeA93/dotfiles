@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd $DOTFILES/sandbox
+docker-compose up -d
+docker-compose exec dev bash
