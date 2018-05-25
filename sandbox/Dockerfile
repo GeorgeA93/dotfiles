@@ -19,7 +19,10 @@ RUN apt install -y \
     python3-dev \
     golang-go \
     zsh \
-    curl
+    curl \
+    libssl-dev \
+    libreadline-dev \
+    zlib1g-dev
 
 RUN useradd -m grg && usermod -aG sudo grg
 USER grg
