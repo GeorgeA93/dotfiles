@@ -31,8 +31,6 @@ USER grg
 
 WORKDIR home/grg
 
-RUN export TERM=xterm-color
-
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
