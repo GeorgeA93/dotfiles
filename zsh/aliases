@@ -37,3 +37,11 @@ alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
 alias path="echo $PATH | tr ':' '\n'"
 alias cex="chmod +x"
+
+sup() {
+  docker cp $1 sandbox_dev_1:/home/grg/
+}
+
+sdl() {
+  docker cp sandbox_dev_1:/home/grg/$1 .
+}
