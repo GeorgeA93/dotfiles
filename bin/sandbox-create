@@ -3,3 +3,5 @@
 cd $DOTFILES/sandbox
 docker build -t dev .
 docker-compose up -d
+docker exec -it --user root sandbox_dev_1 apt install sudo
+

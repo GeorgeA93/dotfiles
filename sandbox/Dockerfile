@@ -27,6 +27,7 @@ RUN apt install -y \
     tmux
 
 RUN useradd -m grg && usermod -aG sudo grg
+RUN echo 'grg:pass' | chpasswd
 USER grg
 
 WORKDIR home/grg
