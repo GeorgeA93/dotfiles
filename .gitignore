@@ -1,3 +1,4 @@
 vim/plugged
 vim/swapfiles/*
 !vim/swapfiles/.gitkeep 
+tmux/tmuxconf.private

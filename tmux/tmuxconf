@@ -1,3 +1,5 @@
+source-file $DOTFILES/tmux/tmuxconf.private
+
 set -g default-shell /bin/bash
 
 set -g prefix C-a
@@ -32,8 +34,6 @@ bind -n C-l run "($is_vim && tmux send-keys C-l) || \
                  tmux select-pane -R"
 
 bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
-
-bind-key e send-keys ".order(:sort_key)"
 
 # start window numbers from 1
 set -g base-index 1
