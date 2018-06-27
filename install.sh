@@ -32,6 +32,9 @@ ln -svf $dir/zsh/aliases ~/.aliases
 echo "Setting up tmux"
 ln -svf $dir/tmux/tmuxconf ~/.tmux.conf
 
+echo "Setting up gpg"
+ln -svf $dir/gpg/agentconf ~/.gnupg/gpg-agent.conf
+
 # kitty
 echo -n "Configure Kitty? (y/n)? "
 read answer
