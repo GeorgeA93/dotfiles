@@ -130,6 +130,7 @@ set-option -g default-command "reattach-to-user-namespace -l zsh"
 set-option -g status-bg colour18 # base01
 set-option -g status-fg colour03 # base04
 set-option -g status-attr default
+set-option -g status-left-fg colour04
 
 # default window title colors
 set-window-option -g window-status-bg default
