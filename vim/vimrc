@@ -122,6 +122,7 @@ let g:rustfmt_autosave = 1
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+call deoplete#custom#option('auto_complete_delay', 200)
 
 function! ShellCommandSeperator()
   if empty(matchstr($SHELL, 'fish'))
