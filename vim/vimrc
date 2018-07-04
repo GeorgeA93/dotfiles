@@ -109,7 +109,8 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'fishbullet/deoplete-ruby'
-let g:deoplete#enable_at_startup = 1
+Plug 'Shougo/neco-vim'
+
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_structs = 1
@@ -119,10 +120,12 @@ let g:go_textobj_enabled = 0
 
 let g:rustfmt_autosave = 1
 
-
-" deoplete tab-complete
+" deoplete
+let g:deoplete#enable_at_startup = 1
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-call deoplete#custom#option('auto_complete_delay', 200)
+augroup deoplete
+  autocmd VimEnter * call deoplete#custom#option('auto_complete_delay', 200)
+augroup END
 
 function! ShellCommandSeperator()
   if empty(matchstr($SHELL, 'fish'))
@@ -159,18 +162,19 @@ augroup vim_go
 augroup END
 call plug#end()
 
-" Open NERDTree automatically when vim starts on a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+augroup NERDtree
+  " Open NERDTree automatically when vim starts on a directory
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+  " Close NERDTree tab if the only remaining window is NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup END
 
 " Open and close NERDTree
 nnoremap <Leader>f :NERDTreeToggle<Enter>
 
 " Open NERDTree on file I am editing
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
-
-" Close NERDTree tab if the only remaining window is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
@@ -266,4 +270,6 @@ if filereadable(expand('~/.vimrc_background'))
 endif
 
 " Format xml
-au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+augroup xml_format
+  autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+augroup END
