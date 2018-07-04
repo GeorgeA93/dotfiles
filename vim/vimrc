@@ -76,19 +76,15 @@ let g:airline#extensions#branch#enabled = 1
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'AndrewRadev/splitjoin.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'wikitopian/hardmode'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --cs-completer --rust-completer' }
 Plug 'danro/rename.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'jgdavey/vim-blockle'
 Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
