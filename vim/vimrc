@@ -105,6 +105,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'fishbullet/deoplete-ruby'
+let g:deoplete#enable_at_startup = 1
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_structs = 1
@@ -113,6 +118,10 @@ let g:go_highlight_methods = 1
 let g:go_textobj_enabled = 0
 
 let g:rustfmt_autosave = 1
+
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 function! ShellCommandSeperator()
   if empty(matchstr($SHELL, 'fish'))
@@ -227,17 +236,6 @@ map <Leader>rs :call VimuxRunCommand("clear; rails s")<CR>
 let g:UltiSnipsExpandTrigger='<c-j>'
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
-" ycm
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-nnoremap <leader>wg :YcmCompleter GoTo<CR>
-nnoremap <leader>wd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>wc :YcmCompleter GoToDeclaration<CR>
 
 " move lines up and down
 nnoremap ,j :<C-u>silent! move-2<CR>==
