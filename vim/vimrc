@@ -39,7 +39,6 @@ if has('macunix')
 endif
 set timeoutlen=1000 ttimeoutlen=0
 set lazyredraw
-set updatetime=100 " faster git gutter updates
 
 " Change leader to Space
 let g:mapleader = "\<Space>"
@@ -104,7 +103,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'w0rp/ale'
-Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
@@ -121,12 +119,9 @@ let g:rustfmt_autosave = 1
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 200
+let g:deoplete#max_list = 25
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-augroup deoplete
-  autocmd!
-  autocmd VimEnter * call deoplete#custom#option('auto_complete_delay', 200)
-  autocmd VimEnter * call deoplete#custom#option('max_list', 25)
-augroup END
 
 function! ShellCommandSeperator()
   if empty(matchstr($SHELL, 'fish'))
