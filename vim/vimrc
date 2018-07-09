@@ -107,6 +107,10 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/neco-vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = 'goimports'
@@ -122,6 +126,12 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 200
 let g:deoplete#max_list = 25
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" language server
+let g:LanguageClient_serverCommands = {
+    \ 'ruby': ['solargraph', 'stdio'],
+    \ }
+let g:LanguageClient_diagnosticsEnable = 0
 
 function! ShellCommandSeperator()
   if empty(matchstr($SHELL, 'fish'))
@@ -219,7 +229,7 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 1
+let g:ale_set_highlights = 0
 let g:ale_lint_delay = 400
 
 " function to make tmux zoom its runner pane.
