@@ -32,7 +32,6 @@ set hlsearch
 set guioptions= " hide scroll bars
 set textwidth=80 " Default line length in chars
 set directory=~/.vim/swapfiles//  " Change swapfile location for out of wd
-set spell
 if has('macunix')
   set list
   set listchars=tab:·\ ,trail:˽
@@ -77,7 +76,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -186,8 +184,6 @@ nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
 
-" <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
 " vim-test
 nnoremap <silent> <Leader>g :TestFile<CR>
 nnoremap <silent> <Leader>h :TestNearest<CR>
