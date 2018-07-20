@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'nokogiri'
+
+def parse_and_extract_namespace(content)
+  parsed_content = Nokogiri.parse(content)
+  namespace = parsed_content.namespaces['xmlns']
+  [namespace, parsed_content]
+end
+
+def get_nodes(namespace, parsed, path)
+  path_parts = path.split('/')
+  path = ".//namespace:#{path_parts.join('/namespace:')}"
+  parsed.xpath(path, 'namespace' => namespace)
+end
+
+# takes as input path with parts separated by '/'
+# example: "first_part/second_part/etc"
+def get_value(namespace, parsed, path)
+  get_nodes(namespace, parsed, path).first&.text
+end
+
+file = ARGV[0]
+content = File.read(file)
+
+namespace, parsed = parse_and_extract_namespace(content)
+
