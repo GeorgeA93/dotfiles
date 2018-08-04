@@ -1,0 +1,6 @@
+brew "tmux"
+brew "tldr"
+brew "htop"
+brew "gnupg"
+cask "google-chrome"
+cask "spotify"

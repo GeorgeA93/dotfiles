@@ -1,0 +1,5 @@
+alias tl="tmux ls"
+alias tks="tmux kill-server"
+alias tkt="tmux kill-session -t"
+alias t="tmux"
+alias ts="tmux source-file ~/.tmux.conf"
