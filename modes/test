@@ -8,3 +8,4 @@ ale
 completion
 language-client
 snippets
+rust
