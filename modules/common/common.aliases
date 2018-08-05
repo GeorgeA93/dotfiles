@@ -3,6 +3,9 @@ alias tks="tmux kill-server"
 alias tkt="tmux kill-session -t"
 alias t="tmux"
 alias ts="tmux source-file ~/.tmux.conf"
+alias path="echo $PATH | tr ':' '\n'"
+alias cex="chmod +x"
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 
 create-module() {
   mkdir $DOTFILES/modules/$1
