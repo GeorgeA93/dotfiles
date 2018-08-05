@@ -28,7 +28,11 @@ fi
 builddir=$HOME/dotfiles/build
 
 # VIM
-ln -svf $builddir/vim/vimrc ~/.vimrc
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  ln -svf $builddir/vim ~/.vim
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  ln -svf $builddir/vim/vimrc ~/.vimrc
+fi
 vim +PlugInstall +:qa # Install plugins
 
 # ZSH
