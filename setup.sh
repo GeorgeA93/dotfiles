@@ -39,9 +39,13 @@ source ~/.zshrc
 # TMUX
 ln -svf $builddir/tmux/tmux ~/.tmux.conf
 
-#GPG
+# GPG
 mkdir -p ~/.gnupg
 ln -svf $builddir/gpg/agentconf ~/.gnupg/gpg-agent.conf
+
+# GIT
+ln -svf $builddir/git/gitconfig ~/.gitconfig
+
 
 # OH MY ZSH
 git clone https://www.github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh

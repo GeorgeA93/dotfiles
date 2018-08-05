@@ -14,6 +14,7 @@ zshrc=$build/zsh/zshrc
 aliases=$build/zsh/aliases
 brewfile=$build/brew/Brewfile
 agentconf=$build/gpg/agentconf
+gitconfig=$build/git/gitconfig
 
 setup_build_output() {
   rm -rf $build
@@ -24,12 +25,14 @@ setup_build_output() {
   mkdir -p $build/zsh
   mkdir -p $build/brew
   mkdir -p $build/gpg
+  mkdir -p $build/git
 
   touch $vimrc
   touch $tmux
   touch $zshrc
   touch $brewfile
   touch $agentconf
+  touch $gitconfig
 }
 
 determine_os() {
@@ -72,6 +75,7 @@ do
     concat_config $moduledir aliases $aliases
     concat_config $moduledir brew $brewfile
     concat_config $moduledir gpg $agentconf
+    concat_config $moduledir git $gitconfig
 done < "$modedir/$modename"
 
 if [[ "$skip_deps" -eq "0" ]]; then
