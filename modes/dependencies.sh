@@ -22,7 +22,6 @@ install_yum() {
   echo "Installing yum dependencies"
 }
 
-
 if [ -n "$(which brew)" ]; then
   install_brew
 elif [ -n "$(which apt)" ]; then
