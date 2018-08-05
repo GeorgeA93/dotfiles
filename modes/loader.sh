@@ -87,7 +87,7 @@ do
     concat_config $moduledir aliases $aliases
     concat_config $moduledir brew $brewfile
     concat_config $moduledir apt $aptfile
-    concat_config $moduledir apt-repo $aptrepos
+    concat_config $moduledir apt-repos $aptrepos
     concat_config $moduledir gpg $agentconf
     concat_config $moduledir git $gitconfig
 done < "$modedir/$modename"
