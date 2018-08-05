@@ -92,6 +92,6 @@ augroup xml_format
   autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 augroup END
 
-call plug#begin('$DOTFILES/build/vim/plugged')
-source $DOTFILES/build/vim/vimplugins
+call plug#begin('$HOME/dotfiles/build/vim/plugged')
+source $HOME/dotfiles/build/vim/vimplugins
 call plug#end()
