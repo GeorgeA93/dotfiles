@@ -1,0 +1,6 @@
+vim
+man
+build-essential
+cmake
+tmux
+curl

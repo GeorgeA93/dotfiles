@@ -13,6 +13,7 @@ tmux=$build/tmux/tmux
 zshrc=$build/zsh/zshrc
 aliases=$build/zsh/aliases
 brewfile=$build/brew/Brewfile
+aptfile=$build/apt/aptfile
 agentconf=$build/gpg/agentconf
 gitconfig=$build/git/gitconfig
 
@@ -24,6 +25,7 @@ setup_build_output() {
   mkdir -p $build/tmux
   mkdir -p $build/zsh
   mkdir -p $build/brew
+  mkdir -p $build/apt
   mkdir -p $build/gpg
   mkdir -p $build/git
 
@@ -31,6 +33,7 @@ setup_build_output() {
   touch $tmux
   touch $zshrc
   touch $brewfile
+  touch $aptfile
   touch $agentconf
   touch $gitconfig
 }
@@ -81,6 +84,7 @@ do
     concat_config $moduledir zsh $zshrc
     concat_config $moduledir aliases $aliases
     concat_config $moduledir brew $brewfile
+    concat_config $moduledir apt $aptfile
     concat_config $moduledir gpg $agentconf
     concat_config $moduledir git $gitconfig
 done < "$modedir/$modename"

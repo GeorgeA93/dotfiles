@@ -11,6 +11,8 @@ install_brew() {
 
 install_apt() {
   echo "Installing apt dependencies"
+
+  sudo apt-get install $(awk '{print $1'} $builddir/apt/aptfile)
 }
 
 install_yum() {
