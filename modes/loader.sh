@@ -46,6 +46,11 @@ determine_os() {
   esac
 }
 
+run_scripts() {
+  dir=$1
+  $dir/*.sh 2> /dev/null
+}
+
 concat_config() {
   dir=$1
   extension=$2
@@ -66,7 +71,9 @@ while read -r line
 do
     modulename="$line"
     moduledir="$modulebase/$modulename"
-    echo "Loading module $modulename"
+    echo "Building module $modulename"
+
+    run_scripts $moduledir
 
     concat_config $moduledir vim $vimrc
     concat_config $moduledir vimplug $vimplugins
