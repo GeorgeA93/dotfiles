@@ -14,6 +14,7 @@ zshrc=$build/zsh/zshrc
 aliases=$build/zsh/aliases
 brewfile=$build/brew/Brewfile
 aptfile=$build/apt/aptfile
+aptrepos=$build/apt/aptrepos
 agentconf=$build/gpg/agentconf
 gitconfig=$build/git/gitconfig
 
@@ -34,6 +35,7 @@ setup_build_output() {
   touch $zshrc
   touch $brewfile
   touch $aptfile
+  touch $aptrepos
   touch $agentconf
   touch $gitconfig
 }
@@ -85,6 +87,7 @@ do
     concat_config $moduledir aliases $aliases
     concat_config $moduledir brew $brewfile
     concat_config $moduledir apt $aptfile
+    concat_config $moduledir apt-repo $aptrepos
     concat_config $moduledir gpg $agentconf
     concat_config $moduledir git $gitconfig
 done < "$modedir/$modename"

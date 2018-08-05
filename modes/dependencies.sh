@@ -12,6 +12,9 @@ install_brew() {
 install_apt() {
   echo "Installing apt dependencies"
 
+  sudo apt-get update
+  sudo add-apt-repository $(awk '{print $1'} $builddir/apt/aptrepos)
+  sudo apt-get update
   sudo apt-get install $(awk '{print $1'} $builddir/apt/aptfile)
 }
 
