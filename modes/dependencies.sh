@@ -18,10 +18,10 @@ install_yum() {
 }
 
 
-if [[ -n "$(which brew)" ]]; then
+if [ -n "$(which brew)" ]; then
   install_brew
-elif [[ -n "$(which apt)" ]]; then
+elif [ -n "$(which apt)" ]; then
   install_apt
-elif [[ -n "$(which yum)" ]]; then
+elif [ -n "$(which yum)" ]; then
   install_yum
 fi

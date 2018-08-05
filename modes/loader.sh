@@ -56,7 +56,7 @@ concat_config() {
   extension=$2
   destination=$3
   sources=$dir/*$extension
-  if [[ $(ls $sources 2> /dev/null | wc -c) -ne 0 ]]; then
+  if [ $(ls $sources 2> /dev/null | wc -c) -ne 0 ]; then
     cat $sources >> $destination
   fi
 }
@@ -85,7 +85,7 @@ do
     concat_config $moduledir git $gitconfig
 done < "$modedir/$modename"
 
-if [[ "$skip_deps" -eq "0" ]]; then
+if [ "$skip_deps" -eq "0" ]; then
   ./modes/dependencies.sh
 else
   echo "Skipping dependencies"
