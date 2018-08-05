@@ -6,3 +6,4 @@ git
 fzf
 ale
 completion
+language-client
