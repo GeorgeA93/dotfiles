@@ -1,5 +1,5 @@
 #!/bin/sh
-
+export DOTFILES=$HOME/dotfiles
 modedir=$DOTFILES/modes
 modulebase=$DOTFILES/modules
 modename="$1"

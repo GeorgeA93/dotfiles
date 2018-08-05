@@ -1,110 +1,11 @@
-set nocompatible
-set encoding=utf-8
-filetype plugin on
-set number " line numbers
-set clipboard=unnamed
-set visualbell " turn that bell off
-syntax on " Give me highlighting
-set autoindent " indents plz
-set smartindent
-set smarttab
-set shiftwidth=2
-set autoread " reload files outside of vim
-set softtabstop=2
-set tabstop=2
-set expandtab
-set mouse=a " mouse and scrolling plz
-set backspace=indent,eol,start
-set scrolloff=3
-set ignorecase " ignore case in searches
-set smartcase " unless caps are in the search
-set incsearch " search while composing regex
-set autowrite " always write
-set autowriteall
-set nobackup " don't write junk files
-set foldenable
-set foldmethod=indent
-set foldlevelstart=99 " Unfold everything when opening file
-set foldlevel=100
-set splitbelow " open new splits to the right and bottom
-set splitright
-set hlsearch
-set guioptions= " hide scroll bars
-set textwidth=80 " Default line length in chars
-set directory=~/.vim/swapfiles//  " Change swapfile location for out of wd
-set timeoutlen=1000 ttimeoutlen=0
-set lazyredraw
-
-" Change leader to Space
-let g:mapleader = "\<Space>"
-
-" fast save
-nmap <leader>w :w!<cr>
-
-" fast close buffer
-map <leader>bd :Bdelete<cr>
-
-" close all buffers
-map <leader>ba :bufdo :Bdelete<cr>
-
-" Cycle through buffers
-nnoremap <C-M> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
-
-" scroll the viewport faster
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-
-" copy whole file
-nnoremap <leader>ya :%y<CR>
-
-" THEME
-set noshowmode
-set laststatus=2
-let g:airline_theme='base16'
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-
 " PLUGINS
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'danro/rename.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
 Plug 'sheerun/vim-polyglot'
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
-Plug 'muziqiushan/vim-bufonly'
-Plug 'tpope/vim-endwise'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'moll/vim-bbye'
-Plug 'tpope/vim-dispatch'
 Plug 'https://github.com/fatih/vim-go', {'for': 'go'}
-Plug 'rust-lang/rust.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'chriskempson/base16-vim'
-Plug 'w0rp/ale'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'Shougo/neco-vim'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 let g:go_fmt_fail_silently = 0
@@ -114,19 +15,11 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_textobj_enabled = 0
 
-let g:rustfmt_autosave = 1
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 200
-let g:deoplete#max_list = 25
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " language server
 let g:LanguageClient_serverCommands = {
     \ 'ruby': ['solargraph', 'stdio'],
     \ }
-let g:LanguageClient_diagnosticsEnable = 0
 
 function! ShellCommandSeperator()
   if empty(matchstr($SHELL, 'fish'))
@@ -163,24 +56,6 @@ augroup vim_go
 augroup END
 call plug#end()
 
-augroup NERDtree
-  autocmd!
-  " Open NERDTree automatically when vim starts on a directory
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-  " Close NERDTree tab if the only remaining window is NERDTree
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-augroup END
-
-" Open and close NERDTree
-nnoremap <Leader>f :NERDTreeToggle<Enter>
-
-" Open NERDTree on file I am editing
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
-
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrows = 1
-
 " vim-test
 nnoremap <silent> <Leader>g :TestFile<CR>
 nnoremap <silent> <Leader>h :TestNearest<CR>
@@ -189,90 +64,12 @@ nnoremap <silent> <Leader>k :TestSuite<CR>
 let g:test#strategy = 'vimux'
 let g:test#ruby#rspec#options = '-fd'
 
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-map <C-w>j :res +5<CR>
-map <C-w>k :res -5<CR>
-map <C-w>l :vertical resize +5<CR>
-map <C-w>h :vertical resize -5<CR>
-
-" Get off my lawn
-nnoremap <Left> :echoe "Use H!"<CR>
-nnoremap <Right> :echoe "Use l!"<CR>
-nnoremap <Up> :echoe "Use k!"<CR>
-nnoremap <Down> :echoe "Use j!"<CR>
-
-" Ag word under cursor
-nnoremap <Leader>a :Ag <C-r><C-w><CR>
-
-" FZF
-nnoremap <silent> <Leader>p :Files<CR>
-nmap ; :Buffers<CR>
-let g:fzf_layout = { 'down': '~20%' }
-
 " ALE
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
-\   'rust': ['rustfmt'],
 \   'go': ['gofmt'],
 \}
-let g:ale_fix_on_save = 1
-let g:airline#extensions#ale#enabled = 0
-let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
-let g:ale_lint_delay = 400
-
-" function to make tmux zoom its runner pane.
-function! VimuxZoomRunner()
-  call VimuxInspectRunner()
-  call system('tmux resize-pane -Z')
-endfunction
-
-" zoom the tmux runner pane
-map <Leader>vz :VimuxZoomRunner<CR>
 
 " custom vimux commands
 map <Leader>rc :call VimuxRunCommand("clear; rails c")<CR>
 map <Leader>rs :call VimuxRunCommand("clear; rails s")<CR>
-
-" snippets
-let g:UltiSnipsExpandTrigger='<c-j>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
-" move lines up and down
-nnoremap ,j :<C-u>silent! move-2<CR>==
-nnoremap ,k :<C-u>silent! move+<CR>==
-
-" upcase word
-nnoremap <Leader>u gUiw
-
-" Automatic Filename expansions for commands
-" Directory for current file
-cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
-" Current file name
-cnoremap %f <C-R>=fnameescape(expand('%:t'))<cr>
-" Full path for current file
-cnoremap %a <C-R>=fnameescape(expand('%:p'))<cr>
-
-nnoremap <leader>e :e! $MYVIMRC<CR>
-autocmd! bufwritepost $MYVIMRC source $MYVIMRC
-
-let g:polyglot_disabled = ['go', 'rust']
-
-nnoremap <leader>ha <Esc>:call ToggleHardMode()<CR>
-
-if filereadable(expand('~/.vimrc_background'))
-  let g:base16colorspace=256
-  source ~/.vimrc_background
-endif
-
-" Format xml
-augroup xml_format
-  autocmd!
-  autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
-augroup END
