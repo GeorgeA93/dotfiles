@@ -16,6 +16,7 @@ alias rn="react-native"
 alias dotfiles="vim ~/dotfiles"
 alias private-env="vim ~/.private-env"
 alias grom="git fetch && git rebase origin/master --autostash --verbose"
+alias gb="git branch --color | cat"
 alias d="docker"
 alias dc="docker-compose"
 alias docker-clean-all='docker stop $(docker container ls -a -q) && docker system prune -a -f --volumes'
