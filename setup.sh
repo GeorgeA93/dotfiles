@@ -28,7 +28,7 @@ fi
 builddir=$HOME/dotfiles/build
 
 # VIM
-ln -svf $builddir/vim ~/.vim
+ln -svfn $builddir/vim ~/.vim
 vim +PlugInstall +:qa # Install plugins
 
 # ZSH
