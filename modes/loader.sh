@@ -19,7 +19,6 @@ agentconf=$build/gpg/agentconf
 gitconfig=$build/git/gitconfig
 
 setup_build_output() {
-  rm -rf $build
   mkdir -p $build
   mkdir -p $build/vim
   mkdir -p $build/vim/swapfiles
@@ -30,14 +29,19 @@ setup_build_output() {
   mkdir -p $build/gpg
   mkdir -p $build/git
 
-  touch $vimrc
-  touch $tmux
-  touch $zshrc
-  touch $brewfile
-  touch $aptfile
-  touch $aptrepos
-  touch $agentconf
-  touch $gitconfig
+  setup_config_file $vimrc
+  setup_config_file $tmux
+  setup_config_file $zshrc
+  setup_config_file $brewfile
+  setup_config_file $aptfile
+  setup_config_file $aptrepos
+  setup_config_file $agentconf
+  setup_config_file $gitconfig
+}
+
+setup_config_file() {
+  rm $1
+  touch $1
 }
 
 determine_os() {
