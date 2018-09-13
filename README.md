@@ -5,12 +5,14 @@ Install with:
 ```
 git clone https://github.com/GeorgeA93/dotfiles.git
 cd dotfiles
-install.sh
+./setup.sh -m <mode>
 ```
 
-If you need private stuff. Stick it in `~/.private-env` and it will be sourced for you.
+To ignore deps use:
 
-For private tmux configuration. e.g. keybindings on a specific machine, place it inside /tmux/tmuxconf.private and it will be source automagically by tmux.
+`./setup.sh -m <mode> -d 1`
+
+If you need private stuff. Stick it in `modules/<module>/<module>.<type>.private` and it will be sourced for you.
 
 `sandbox-create` will create a docker container environment for sandbox/development use.
 `sandbox` will connect you to said container
