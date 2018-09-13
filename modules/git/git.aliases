@@ -1,0 +1,9 @@
+alias g="git"
+alias gs="git status"
+alias gp="git push"
+alias gcb="git checkout -b"
+alias grom="git fetch && git rebase origin/master --autostash --verbose"
+alias rbc="git rebase --continue"
+alias yolo="git push --force-with-lease"
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'

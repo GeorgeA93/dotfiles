@@ -1,0 +1,12 @@
+common
+nerdtree
+airline
+base16-theme
+git
+fzf
+ale
+completion
+language-client
+snippets
+rust
+rust-linting
