@@ -8,5 +8,3 @@ ale
 completion
 language-client
 snippets
-rust
-rust-linting
