@@ -82,23 +82,23 @@ do
     moduledir="$modulebase/$modulename"
     echo "Building module $modulename"
 
-    run_scripts $moduledir
+    concat_config $moduledir brew $brewfile
+    concat_config $moduledir apt $aptfile
+    concat_config $moduledir apt-repos $aptrepos
+
+    if [ "$skip_deps" -eq "0" ]; then
+      ./modes/dependencies.sh
+    else
+      echo "Skipping dependencies"
+    fi
 
     concat_config $moduledir vim $vimrc
     concat_config $moduledir vimplug $vimplugins
     concat_config $moduledir tmux $tmux
     concat_config $moduledir zsh $zshrc
     concat_config $moduledir aliases $aliases
-    concat_config $moduledir brew $brewfile
-    concat_config $moduledir apt $aptfile
-    concat_config $moduledir apt-repos $aptrepos
     concat_config $moduledir gpg $agentconf
     concat_config $moduledir git $gitconfig
+
+    run_scripts $moduledir
 done < "$modedir/$modename"
-
-if [ "$skip_deps" -eq "0" ]; then
-  ./modes/dependencies.sh
-else
-  echo "Skipping dependencies"
-fi
-
