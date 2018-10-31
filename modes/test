@@ -9,3 +9,4 @@ completion
 language-client
 snippets
 ruby-linting
+vim-test
