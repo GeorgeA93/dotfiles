@@ -1,0 +1,1 @@
+Plug 'https://github.com/fatih/vim-go', {'for': 'go'}

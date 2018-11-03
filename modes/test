@@ -11,3 +11,6 @@ snippets
 ruby-linting
 vim-test
 ruby-testing
+go
+go-linting
+go-completion
