@@ -80,17 +80,24 @@ while read -r line
 do
     modulename="$line"
     moduledir="$modulebase/$modulename"
-    echo "Building module $modulename"
+    echo "Building dependencies for module $modulename"
 
     concat_config $moduledir brew $brewfile
     concat_config $moduledir apt $aptfile
     concat_config $moduledir apt-repos $aptrepos
+done < "$modedir/$modename"
 
-    if [ "$skip_deps" -eq "0" ]; then
-      ./modes/dependencies.sh
-    else
-      echo "Skipping dependencies"
-    fi
+if [ "$skip_deps" -eq "0" ]; then
+  ./modes/dependencies.sh
+else
+  echo "Skipping dependencies"
+fi
+
+while read -r line
+do
+    modulename="$line"
+    moduledir="$modulebase/$modulename"
+    echo "Building module $modulename"
 
     concat_config $moduledir vim $vimrc
     concat_config $moduledir vimplug $vimplugins
