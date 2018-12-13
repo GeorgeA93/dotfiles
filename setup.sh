@@ -31,6 +31,11 @@ builddir=$HOME/dotfiles/build
 ln -svfn $builddir/vim ~/.vim
 vim +PlugInstall +:qa # Install plugins
 
+# I3
+mkdir -p ~/.config
+mkdir -p ~/.config/i3
+ln -svf $builddir/i3/config ~/.config/i3/config
+
 # ZSH
 ln -svf $builddir/zsh/zshrc ~/.zshrc
 ln -svf $builddir/zsh/aliases ~/.aliases
