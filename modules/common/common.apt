@@ -9,3 +9,4 @@ libssl-dev
 libreadline-dev
 zlib1g-dev
 xclip
+terminator
