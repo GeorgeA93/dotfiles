@@ -9,3 +9,4 @@ completion
 language-client
 snippets
 vim-test
+docker
