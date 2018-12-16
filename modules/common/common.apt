@@ -10,3 +10,4 @@ libreadline-dev
 zlib1g-dev
 xclip
 terminator
+rofi
