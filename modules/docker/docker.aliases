@@ -1,8 +1,9 @@
-alias d="sudo docker"
-alias docker-clean-all='sudo docker stop $(docker container ls -a -q) && docker system prune -a -f --volumes'
-alias docker-clean-container='sudo docker container stop $(docker container ls -a -q) && docker container rm $(docker container ls -a -q)'
+unalias d
+alias d="docker"
+alias docker-clean-all='docker stop $(docker container ls -a -q) && docker system prune -a -f --volumes'
+alias docker-clean-container='docker container stop $(docker container ls -a -q) && docker container rm $(docker container ls -a -q)'
 alias docker-remove-images='docker rmi -f $(docker images -a -q)'
-alias dex="sudo docker exec -it"
-alias dps="sudo docker ps"
-alias dce="sudo docker-compose exec"
-alias dip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+alias dex="docker exec -it"
+alias dps="docker ps"
+alias dce="docker-compose exec"
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
