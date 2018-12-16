@@ -3,6 +3,10 @@ set $mod Mod1
 
 font pango:monospace 8
 
+for_window [class="^.*"] border pixel 0
+gaps inner 15
+gaps outer 25
+
 floating_modifier $mod
 
 bindsym $mod+Return exec i3-sensible-terminal
