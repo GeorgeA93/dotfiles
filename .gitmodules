@@ -1,0 +1,3 @@
+[submodule "base16-rofi"]
+  path = base16-rofi
+  url = https://github.com/0xdec/base16-rofi
