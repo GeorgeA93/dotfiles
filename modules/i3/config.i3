@@ -1,7 +1,7 @@
 # Use alt as mod key
 set $mod Mod1
 
-font pango:monospace 8
+font pango:Hack 10
 
 for_window [class="^.*"] border pixel 0
 gaps inner 15
@@ -94,5 +94,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
+  position top
   status_command i3status
 }
