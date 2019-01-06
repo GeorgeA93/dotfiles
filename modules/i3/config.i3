@@ -1,11 +1,11 @@
 # Use alt as mod key
 set $mod Mod1
 
-font pango:Hack 10
+font pango:Hack 8
 
 for_window [class="^.*"] border pixel 0
 gaps inner 15
-gaps outer 25
+gaps outer 35
 
 floating_modifier $mod
 
@@ -97,3 +97,5 @@ bar {
   position top
   status_command i3status
 }
+
+exec_always feh --bg-scale ~/dotfiles/wallpapers/mountains.jpg
