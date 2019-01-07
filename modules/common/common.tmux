@@ -1,5 +1,3 @@
-source-file $DOTFILES/modules/common/common.tmux.private
-
 set -g default-shell /bin/zsh
 
 set -g prefix C-a
