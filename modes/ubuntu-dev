@@ -1,7 +1,8 @@
 common
 nerdtree
+pywal
+pywal-vim
 airline
-base16-theme
 git
 fzf
 ale

@@ -14,5 +14,6 @@ export PATH="$PATH:/bin"
 export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:/sbin"
 export PATH="$PATH:$DOTFILES/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 source $ZSH/oh-my-zsh.sh

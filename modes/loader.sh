@@ -74,7 +74,6 @@ concat_config() {
 
   private_extension=$extension.private
   private_sources=$dir/*$private_extension
-  echo $private_sources
   if [ $(ls $private_sources 2> /dev/null | wc -c) -ne 0 ]; then
     cat $private_sources >> $destination
   fi
