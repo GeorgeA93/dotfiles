@@ -3,7 +3,7 @@ set $mod Mod1
 
 font pango:Hack 8
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 gaps inner 15
 gaps outer 35
 
