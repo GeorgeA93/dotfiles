@@ -11,5 +11,6 @@ snippets
 vim-test
 docker
 i3
+polybar
 ruby
 ruby-linting
