@@ -21,3 +21,4 @@ libjsoncpp-dev
 libmpdclient-dev
 libcurl4-openssl-dev
 libnl-genl-3-dev
+libiw-dev
