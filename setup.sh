@@ -36,6 +36,9 @@ mkdir -p ~/.config
 mkdir -p ~/.config/i3
 ln -svf $builddir/i3/config ~/.config/i3/config
 
+# POLYBAR
+ln -svf $builddir/polybar ~/.config/polybar
+
 # ZSH
 ln -svf $builddir/zsh/zshrc ~/.zshrc
 ln -svf $builddir/zsh/aliases ~/.aliases

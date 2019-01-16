@@ -9,6 +9,7 @@ os=""
 build=$DOTFILES/build
 vimrc=$build/vim/vimrc
 i3=$build/i3/config
+polybar=$build/polybar/config
 vimplugins=$build/vim/vimplugins
 tmux=$build/tmux/tmux
 zshrc=$build/zsh/zshrc
@@ -24,6 +25,7 @@ setup_build_output() {
   mkdir -p $build/vim
   mkdir -p $build/vim/swapfiles
   mkdir -p $build/i3
+  mkdir -p $build/polybar
   mkdir -p $build/tmux
   mkdir -p $build/zsh
   mkdir -p $build/brew
@@ -33,6 +35,7 @@ setup_build_output() {
 
   setup_config_file $vimrc
   setup_config_file $i3
+  setup_config_file $polybar
   setup_config_file $tmux
   setup_config_file $zshrc
   setup_config_file $brewfile
@@ -110,6 +113,7 @@ do
 
     concat_config $moduledir vim $vimrc
     concat_config $moduledir i3 $i3
+    concat_config $moduledir polybar $polybar
     concat_config $moduledir vimplug $vimplugins
     concat_config $moduledir tmux $tmux
     concat_config $moduledir zsh $zshrc
