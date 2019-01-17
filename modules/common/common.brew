@@ -1,4 +1,5 @@
 brew "tmux"
+brew "vim"
 brew "tldr"
 brew "htop"
 brew "gnupg"
