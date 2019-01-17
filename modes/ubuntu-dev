@@ -1,7 +1,7 @@
 common
 nerdtree
 airline
-base16-theme
+base16-manager
 git
 fzf
 ale
