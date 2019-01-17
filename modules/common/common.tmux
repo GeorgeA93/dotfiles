@@ -78,3 +78,13 @@ bind -T off F12 \
   refresh-client -S
 
 set -s escape-time 0
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+# Plugin conifg
+set -g @yank_selection_mouse 'clipboard'
+
+# Start up tmux plugin manager
+run -b '~/.tmux/plugins/tpm/tpm'

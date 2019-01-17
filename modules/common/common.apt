@@ -8,6 +8,7 @@ zsh
 libssl-dev
 libreadline-dev
 zlib1g-dev
+xsel
 xclip
 terminator
 rofi
