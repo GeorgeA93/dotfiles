@@ -134,9 +134,6 @@ mode "$mode_gaps_outer" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id $HOME/dotfiles/bin/launch-polybar
-exec_always --no-startup-id feh --bg-scale $HOME/dotfiles/wallpapers/mountains.jpg
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume bluez_sink.40_EF_4C_87_C9_5E.a2dp_sink +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume bluez_sink.40_EF_4C_87_C9_5E.a2dp_sink -5% #decrease sound volume
@@ -146,3 +143,35 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute bluez_sink.40_EF_
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Colours
+set_from_resource $base00 color0 #000000
+set_from_resource $base08 color1 #000000
+set_from_resource $base0B color2 #000000
+set_from_resource $base0A color3 #000000
+set_from_resource $base0D color4 #000000
+set_from_resource $base0E color5 #000000
+set_from_resource $base0C color6 #000000
+set_from_resource $base05 color7 #000000
+set_from_resource $base03 color8 #000000
+set_from_resource $base09 color9 #000000
+set_from_resource $base01 color10 #000000
+set_from_resource $base02 color11 #000000
+set_from_resource $base04 color12 #000000
+set_from_resource $base06 color13 #000000
+set_from_resource $base0F color14 #000000
+set_from_resource $base07 color15 #000000
+
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+
+# Startup Commands
+exec_always --no-startup-id $HOME/dotfiles/bin/launch-polybar
+exec_always --no-startup-id feh --bg-scale $HOME/dotfiles/wallpapers/capetown.jpg
+exec_always --no-startup-id xrdb -load ~/.Xresources
+exec_always --no-startup-id pulseaudio --start
