@@ -13,4 +13,5 @@ docker
 i3
 ruby
 ruby-linting
+journal
 polybar
