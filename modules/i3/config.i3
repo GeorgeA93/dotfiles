@@ -13,7 +13,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 bindsym $mod+q kill
 
+# Program commands
 bindsym $mod+space exec rofi -show run
+bindsym $mod+p exec terminator -e "source ~/.zshrc && ranger"
 
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"

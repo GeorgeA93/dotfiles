@@ -1,18 +1,21 @@
 #!/bin/bash
 
 usage() {
-  echo "Usage: setup.sh [-d] [-m]"
+  echo "Usage: setup.sh [-d] [-m] [-o]"
   exit 1
 }
 
 skip_deps=0
-while getopts ":d:m:" o; do
+while getopts ":d:m:o:" o; do
   case "${o}" in
     d)
       skip_deps=$OPTARG
       ;;
     m)
       mode=$OPTARG
+      ;;
+    o)
+      only_changed=$OPTARG
       ;;
     \?)
       usage
@@ -24,7 +27,7 @@ if [[ -z "$mode" ]]; then
   usage
 fi
 
-./modes/loader.sh $mode $skip_deps
+./modes/loader.sh $mode $skip_deps $only_changed
 builddir=$HOME/dotfiles/build
 
 # VIM
