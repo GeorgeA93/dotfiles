@@ -13,6 +13,7 @@ export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/bin"
 export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:/sbin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$DOTFILES/bin"
 
 source $ZSH/oh-my-zsh.sh
