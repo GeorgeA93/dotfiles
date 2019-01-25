@@ -82,6 +82,7 @@ set -s escape-time 0
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
 
 # Plugin conifg
 set -g @yank_selection_mouse 'clipboard'
