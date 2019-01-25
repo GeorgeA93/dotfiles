@@ -16,6 +16,7 @@ bindsym $mod+q kill
 # Program commands
 bindsym $mod+space exec rofi -show run
 bindsym $mod+p exec terminator -e "source ~/.zshrc && ranger"
+bindsym $mod+g exec google-chrome
 
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
