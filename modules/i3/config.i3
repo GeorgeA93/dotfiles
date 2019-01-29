@@ -40,7 +40,7 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 
 # Split in horizontal direction
-bindsym $mod+hh split h
+bindsym $mod+b split h
 
 # Split in vertical direction
 bindsym $mod+v split v
