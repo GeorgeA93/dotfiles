@@ -84,6 +84,7 @@ concat_config() {
   extension=$2
   destination=$3
   sources=$dir/*$extension
+
   if [ $(ls $sources 2> /dev/null | wc -c) -ne 0 ]; then
     cat $sources >> $destination
   fi
@@ -101,7 +102,7 @@ build() {
     moduledir="$modulebase/$modulename"
     echo "Building module $modulename"
 
-    module_extensions=$(find modules/common -not -path '*.sh' | cut -d '.' -f 2 -s | uniq)
+    module_extensions=$(find $moduledir -not -path '*.sh' | cut -d '.' -f 2 -s | uniq)
 
     for module_extension in ${module_extensions[@]}; do
       build_path_for_ext $module_extension

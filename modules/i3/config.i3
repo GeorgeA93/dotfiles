@@ -48,6 +48,9 @@ bindsym $mod+v split v
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+# Toggle tiling and floating
+bindsym $mod+Shift+space floating toggle
+
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
