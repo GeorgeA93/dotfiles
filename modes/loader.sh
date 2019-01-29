@@ -34,7 +34,10 @@ scripts_to_run=()
 setup_build_output() {
   for build_output_file in ${build_output_files[@]}; do
     rm $build_output_file
-    install -D /dev/null $build_output_file
+
+    dir=$(dirname $build_output_file)
+    mkdir -p $dir
+    touch $build_output_file
   done
 }
 
@@ -98,7 +101,7 @@ build() {
     moduledir="$modulebase/$modulename"
     echo "Building module $modulename"
 
-    module_extensions=$(ls $moduledir -I "*.sh" | cut -d '.' -f 2 | uniq)
+    module_extensions=$(find modules/common -not -path '*.sh' | cut -d '.' -f 2 -s | uniq)
 
     for module_extension in ${module_extensions[@]}; do
       build_path_for_ext $module_extension
