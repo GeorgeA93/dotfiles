@@ -13,6 +13,7 @@ docker
 i3
 ruby
 ruby-linting
+cplus-linting
 journal
 polybar
 compton
