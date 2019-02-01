@@ -16,3 +16,5 @@ go-linting
 go-completion
 journal
 ruby
+cplus-linting
+cplus-completion
