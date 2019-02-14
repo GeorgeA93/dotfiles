@@ -11,3 +11,9 @@ alias gb="git branch --color | cat"
 create-module() {
   mkdir $DOTFILES/modules/$1
 }
+
+new-note() {
+  mkdir -p $HOME/dev/notes
+  cd $HOME/Dev/notes
+  vim -c :Goyo $1.md
+}
