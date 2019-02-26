@@ -34,6 +34,7 @@ set textwidth=80 " Default line length in chars
 set directory=$DOTFILES/build/vim/swapfiles// " Change swapfile location for out of wd
 set timeoutlen=1000 ttimeoutlen=0
 set lazyredraw
+set spell spelllang=en_us
 
 " Change leader to Space
 let g:mapleader = "\<Space>"
