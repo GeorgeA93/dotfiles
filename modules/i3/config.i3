@@ -15,6 +15,7 @@ bindsym $mod+q kill
 
 # Program commands
 bindsym $mod+space exec rofi -show run
+bindsym $mod+Tab exec rofi -show window
 bindsym $mod+p exec terminator -e "source ~/.zshrc && ranger"
 bindsym $mod+g exec google-chrome
 
@@ -87,10 +88,10 @@ bindsym $mod+Shift+10 move container to workspace $ws10
 bindsym $mod+r mode "resize"
 
 mode "resize" {
-  bindsym h resize grow width 10 px or 10 ppt
-  bindsym l resize shrink width 10 px or 10 ppt
-  bindsym k resize shrink height 10 px or 10 ppt
-  bindsym j resize grow height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize shrink height 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -150,6 +151,10 @@ mode "Exit (L)ogout, (R)eboot, (P)oweroff" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# Custom window config
+assign [class="spacerush"] $ws2
+for_window [class="spacerush"] focus
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume bluez_sink.40_EF_4C_87_C9_5E.a2dp_sink +5% #increase sound volume
