@@ -105,6 +105,18 @@ augroup spell_group
     autocmd BufRead,BufNewFile *.md setlocal spell
 augroup END
 
+function! AltCommand(path, vim_command)
+  let l:alternate = system("alt " . a:path)
+  if empty(l:alternate)
+    echo "No alternate file for " . a:path . " exists!"
+  else
+    exec a:vim_command . " " . l:alternate
+  endif
+endfunction
+
+" Find the alternate file for the current path and open it
+nnoremap <leader>t :w<cr>:call AltCommand(expand('%'), ':e')<cr>
+
 call plug#begin('$HOME/dotfiles/build/vim/plugged')
 source $HOME/dotfiles/build/vim/vimplugins
 call plug#end()
