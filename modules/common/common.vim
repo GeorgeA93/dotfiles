@@ -30,11 +30,11 @@ set splitbelow " open new splits to the right and bottom
 set splitright
 set hlsearch
 set guioptions= " hide scroll bars
-set textwidth=80 " Default line length in chars
 set directory=$DOTFILES/build/vim/swapfiles// " Change swapfile location for out of wd
 set timeoutlen=1000 ttimeoutlen=0
 set lazyredraw
 set spell spelllang=en_us
+set wrap linebreak nolist
 
 " Change leader to Space
 let g:mapleader = "\<Space>"
