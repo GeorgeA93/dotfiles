@@ -33,7 +33,6 @@ set guioptions= " hide scroll bars
 set directory=$DOTFILES/build/vim/swapfiles// " Change swapfile location for out of wd
 set timeoutlen=1000 ttimeoutlen=0
 set lazyredraw
-set spell spelllang=en_us
 set wrap linebreak nolist
 
 " Change leader to Space
@@ -91,6 +90,19 @@ cnoremap %a <C-R>=fnameescape(expand('%:p'))<cr>
 augroup xml_format
   autocmd!
   autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+augroup END
+
+" Spelling
+augroup spell_group
+    autocmd!
+
+    autocmd FileType markdown setlocal spell
+    autocmd FileType gitcommit setlocal spell
+    autocmd FileType pullrequest setlocal spell
+    autocmd FileType text setlocal spell
+    autocmd FileType ruby setlocal spell
+
+    autocmd BufRead,BufNewFile *.md setlocal spell
 augroup END
 
 call plug#begin('$HOME/dotfiles/build/vim/plugged')
