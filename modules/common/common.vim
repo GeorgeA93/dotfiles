@@ -117,6 +117,14 @@ endfunction
 " Find the alternate file for the current path and open it
 nnoremap <leader>t :w<cr>:call AltCommand(expand('%'), ':e')<cr>
 
+function! EditMacro()
+  call inputsave()
+  let g:regToEdit = input('Register to edit: ')
+  call inputrestore()
+  execute "nnoremap <Plug>em :let @" . eval("g:regToEdit") . "='<C-R><C-R>" . eval("g:regToEdit")
+endfunction
+nmap <Leader>em :call EditMacro()<CR> <Plug>em
+
 call plug#begin('$HOME/dotfiles/build/vim/plugged')
 source $HOME/dotfiles/build/vim/vimplugins
 call plug#end()
