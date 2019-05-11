@@ -153,7 +153,7 @@ mode "Exit (L)ogout, (R)eboot, (P)oweroff" {
 }
 
 # Custom window config
-assign [class="spacerush"] $ws2
+assign [class="spacerush"] $ws1
 for_window [class="spacerush"] focus
 
 # Pulse Audio controls
