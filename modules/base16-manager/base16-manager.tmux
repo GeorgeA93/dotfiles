@@ -28,26 +28,21 @@
 # Use colortest script from base16-shell to get color assignments
 
 # default statusbar colors
-set-option -g status-bg colour18 # base01
-set-option -g status-fg colour03 # base04
-set-option -g status-attr default
-set-option -g status-left-fg colour04
+set-option -g status-style bg=colour18,fg=colour03,default
+set-option -g status-left-style fg=colour04
 
 # default window title colors
-set-window-option -g window-status-bg default
-set-window-option -g window-status-fg colour03 # base04
+set-window-option -g window-status-style bg=default,fg=colour03
 
 # active window title colors
-set-window-option -g window-status-current-bg default
-set-window-option -g window-status-current-fg colour02 # base05
+set-window-option -g window-status-current-style bg=default,fg=colour02
 
 # pane border
-set-option -g pane-border-fg colour18 # base01
-set-option -g pane-active-border-fg colour19 # base02
+set-option -g pane-border-style fg=colour18
+set-option -g pane-active-border-style fg=colour19
 
 # message text
-set-option -g message-bg colour18 # base01
-set-option -g message-fg colour07 # base05
+set-option -g message-style bg=colour18,fg=colour07
 
 # pane number display
 set-option -g display-panes-active-colour colour02 # base0B
