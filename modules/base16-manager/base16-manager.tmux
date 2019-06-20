@@ -28,7 +28,7 @@
 # Use colortest script from base16-shell to get color assignments
 
 # default statusbar colors
-set-option -g status-style bg=colour18,fg=colour03,default
+set-option -g status-style bg=colour18,fg=colour03
 set-option -g status-left-style fg=colour04
 
 # default window title colors
