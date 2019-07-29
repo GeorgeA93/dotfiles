@@ -125,6 +125,8 @@ function! EditMacro()
 endfunction
 nmap <Leader>em :call EditMacro()<CR> <Plug>em
 
+let g:far#source = 'ag'
+
 call plug#begin('$HOME/dotfiles/build/vim/plugged')
 source $HOME/dotfiles/build/vim/vimplugins
 call plug#end()
