@@ -1,0 +1,16 @@
+#!/bin/bash
+
+bucket=$1
+search_term="AllUsers"
+
+echo "Finding public objects in: $bucket"
+
+for key in $(aws s3 ls --recursive s3://$bucket/ | awk '{$1=$2=$3=""; print $0}' | sed 's/^[ \t]*//'); do
+  acl=$(aws s3api get-object-acl --bucket $bucket --key $key) &&
+  public=$(echo $acl | grep -q $search_term) &&
+  if $public; then
+    echo "Public object found with key: $key"
+  fi;
+done
+
+echo "Done!"
