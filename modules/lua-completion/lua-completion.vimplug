@@ -1,0 +1,2 @@
+Plug 'xolox/vim-misc', { 'for' : 'lua' }
+Plug 'xolox/vim-lua-ftplugin', { 'for' : 'lua' }
