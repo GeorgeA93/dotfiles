@@ -17,6 +17,3 @@ new-note() {
   cd $HOME/Dev/notes
   vim -c :Goyo $1.md
 }
-
-
-alias love="/Applications/love.app/Contents/MacOS/love"

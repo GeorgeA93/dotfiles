@@ -157,9 +157,12 @@ assign [class="spacerush"] $ws1
 for_window [class="spacerush"] focus
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume bluez_sink.40_EF_4C_87_C9_5E.a2dp_sink +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume bluez_sink.40_EF_4C_87_C9_5E.a2dp_sink -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute bluez_sink.40_EF_4C_87_C9_5E.a2dp_sink toggle # mute sound
+bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
+bindsym XF86AudioLowerVolume exec "amixer sset Master 5%-"
+bindsym XF86AudioMute exec "amixer sset Master toggle"
+
+bindsym XF86MonBrightnessUp exec "light -A 10"
+bindsym XF86MonBrightnessDown exec "light -U 10"
 
 # Media player controls
 bindsym XF86AudioPause exec playerctl play-pause
@@ -194,6 +197,6 @@ client.background       $base07
 
 # Startup Commands
 exec_always --no-startup-id $HOME/dotfiles/bin/launch-polybar
-exec_always --no-startup-id feh --bg-scale $HOME/dotfiles/wallpapers/capetown.jpg
+exec_always --no-startup-id feh --bg-scale $HOME/dotfiles/wallpapers/mountains.jpg
 exec_always --no-startup-id xrdb -load ~/.Xresources
 exec_always --no-startup-id pulseaudio --start
