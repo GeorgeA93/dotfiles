@@ -157,9 +157,9 @@ assign [class="spacerush"] $ws1
 for_window [class="spacerush"] focus
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 3 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 3 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 3 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 4 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 4 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 4 toggle # mute sound
 
 bindsym XF86MonBrightnessUp exec "light -A 10"
 bindsym XF86MonBrightnessDown exec "light -U 10"
@@ -200,3 +200,4 @@ exec_always --no-startup-id $HOME/dotfiles/bin/launch-polybar
 exec_always --no-startup-id feh --bg-scale $HOME/dotfiles/wallpapers/mountains.jpg
 exec_always --no-startup-id xrdb -load ~/.Xresources
 exec_always --no-startup-id pulseaudio --start
+exec_always --no-startup-id synclient MaxTapTime=0
