@@ -18,6 +18,7 @@ bindsym $mod+space exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
 bindsym $mod+p exec terminator -e "source ~/.zshrc && ranger"
 bindsym $mod+g exec google-chrome
+bindsym $mod+Shift+s exec $HOME/dotfiles/bin/lock
 
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
@@ -201,3 +202,4 @@ exec_always --no-startup-id feh --bg-scale $HOME/dotfiles/wallpapers/mountains.j
 exec_always --no-startup-id xrdb -load ~/.Xresources
 exec_always --no-startup-id pulseaudio --start
 exec_always --no-startup-id synclient MaxTapTime=0
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /tmp/screenshotblur.png --nofork

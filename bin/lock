@@ -1,0 +1,9 @@
+#!/bin/sh
+
+import -window root /tmp/screenshot.png
+
+convert /tmp/screenshot.png -blur 0x3 /tmp/screenshotblur.png
+
+rm /tmp/screenshot.png
+
+loginctl lock-session
