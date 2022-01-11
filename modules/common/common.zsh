@@ -17,4 +17,6 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$DOTFILES/bin"
 export PATH="$PATH:/usr/local/sbin"
 
+export MESA_LOADER_DRIVER_OVERRIDE=i965
+
 source $ZSH/oh-my-zsh.sh
