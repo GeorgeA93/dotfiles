@@ -2,7 +2,7 @@ set nocompatible
 set encoding=utf-8
 filetype plugin on
 set number " line numbers
-set clipboard=unnamed
+set clipboard=unnamedplus
 set visualbell " turn that bell off
 syntax on " Give me highlighting
 set autoindent " indents plz
