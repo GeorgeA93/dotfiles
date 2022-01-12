@@ -127,6 +127,8 @@ nmap <Leader>em :call EditMacro()<CR> <Plug>em
 
 let g:far#source = 'ag'
 
+autocmd Filetype cs setlocal ts=4 sw=4 sts=0 expandtab
+
 call plug#begin('$HOME/dotfiles/build/vim/plugged')
 source $HOME/dotfiles/build/vim/vimplugins
 call plug#end()
