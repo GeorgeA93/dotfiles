@@ -25,8 +25,14 @@ foreground = ${colors.base05}
  
 line-size = 2
  
+bottom = false
 module-margin = 3
 padding-right = 1
+border-color = #0000ffff
+border-left-size = 25
+border-right-size = 25
+border-top-size = 8
+fixed-center = true
 
 ; font-N = <fontconfig pattern>;<vertical offset>
 font-0 = Hack:size=11;0
