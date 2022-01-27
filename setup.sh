@@ -32,7 +32,7 @@ builddir=$HOME/dotfiles/build
 
 # VIM
 ln -svfn $builddir/vim ~/.vim
-vim +PlugInstall +:qa # Install plugins
+vim +PlugInstall +:qa > /dev/null 2>&1 # Install plugins
 
 # I3
 mkdir -p ~/.config
