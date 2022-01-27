@@ -58,9 +58,12 @@ ln -svf $builddir/gpg/agentconf ~/.gnupg/gpg-agent.conf
 ln -svf $builddir/git/gitconfig ~/.gitconfig
 
 
-# OH MY ZSH
-git clone https://www.github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
-if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
-  chsh -s $(grep /zsh$ /etc/shells | tail -1)
+# OH MY ZSH only if it doesn't exist already
+zsh_dir=$HOME/.oh-my-zsh
+if [[ ! -d "$zsh_dir" ]]; then
+  git clone https://www.github.com/robbyrussell/oh-my-zsh.git $zsh_dir
+  TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+  if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
+    chsh -s $(grep /zsh$ /etc/shells | tail -1)
+  fi
 fi
