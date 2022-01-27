@@ -102,7 +102,7 @@ build() {
     moduledir="$modulebase/$modulename"
     echo "Building module $modulename"
 
-    module_extensions=$(find $moduledir -not -path '*.sh' | cut -d '.' -f 2 -s | uniq)
+    module_extensions=$(find $moduledir -not -path '*.sh' | cut -d '.' -f 2 -s | sort | uniq)
 
     for module_extension in ${module_extensions[@]}; do
       build_path_for_ext $module_extension
