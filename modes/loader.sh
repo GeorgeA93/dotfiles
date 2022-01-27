@@ -5,7 +5,7 @@ modedir=$DOTFILES/modes
 modulebase=$DOTFILES/modules
 modename="$1"
 skip_deps="$2"
-only_changed="$3"
+skip_scripts="$3"
 os=""
 
 build=$DOTFILES/build
@@ -73,10 +73,13 @@ determine_os() {
 }
 
 run_scripts() {
-  echo $scripts_to_run
-  for script in ${scripts_to_run[@]}; do
-    $script 2> /dev/null
-  done
+  if [ "$skip_scripts" -eq "0" ]; then
+    for script in ${scripts_to_run[@]}; do
+      $script 2> /dev/null
+    done
+  else
+    echo "Not running scripts. Skipping"
+  fi
 }
 
 concat_config() {

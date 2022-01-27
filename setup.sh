@@ -1,12 +1,12 @@
 #!/bin/bash
 
 usage() {
-  echo "Usage: setup.sh [-d] [-m] [-o]"
+  echo "Usage: setup.sh [-d] [-m] [-s]"
   exit 1
 }
 
 skip_deps=0
-while getopts ":d:m:o:" o; do
+while getopts ":d:m:s:" o; do
   case "${o}" in
     d)
       skip_deps=$OPTARG
@@ -14,8 +14,8 @@ while getopts ":d:m:o:" o; do
     m)
       mode=$OPTARG
       ;;
-    o)
-      only_changed=$OPTARG
+    s)
+      skip_scripts=$OPTARG
       ;;
     \?)
       usage
@@ -27,7 +27,7 @@ if [[ -z "$mode" ]]; then
   usage
 fi
 
-./modes/loader.sh $mode $skip_deps $only_changed
+./modes/loader.sh $mode $skip_deps $skip_scripts
 builddir=$HOME/dotfiles/build
 
 # VIM
@@ -56,7 +56,6 @@ ln -svf $builddir/gpg/agentconf ~/.gnupg/gpg-agent.conf
 
 # GIT
 ln -svf $builddir/git/gitconfig ~/.gitconfig
-
 
 # OH MY ZSH only if it doesn't exist already
 zsh_dir=$HOME/.oh-my-zsh

@@ -8,5 +8,4 @@ touch $HOME/dotfiles/modules/common/common.tmux.private
 mkdir -p $HOME/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
-
 mkdir -p $HOME/dotfiles/build/vim/swapfiles
