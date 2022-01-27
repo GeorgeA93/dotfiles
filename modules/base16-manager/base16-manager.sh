@@ -12,6 +12,7 @@ base16-manager install chriskempson/base16-shell
 base16-manager install chriskempson/base16-vim
 base16-manager install 0xdec/base16-rofi
 base16-manager install chriskempson/base16-xresources
+base16-manager install nicodebo/base16-fzf
 
 # Set the theme!
 base16-manager set eighties
