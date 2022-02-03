@@ -219,4 +219,3 @@ exec_always --no-startup-id xrdb -load ~/.Xresources
 exec_always --no-startup-id pulseaudio --start
 exec_always --no-startup-id synclient MaxTapTime=0
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /tmp/screenshotblur.png --nofork
-exec_always --no-startup-id compton
