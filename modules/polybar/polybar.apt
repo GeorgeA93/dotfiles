@@ -16,7 +16,6 @@ libxcb-xkb-dev
 libxcb-xrm-dev
 libxcb-cursor-dev
 libpulse-dev
-i3-wm
 libjsoncpp-dev
 libmpdclient-dev
 libcurl4-openssl-dev
