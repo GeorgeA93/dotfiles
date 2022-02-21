@@ -17,3 +17,6 @@ new-note() {
   cd $HOME/Dev/notes
   vim -c :Goyo $1.md
 }
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
