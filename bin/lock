@@ -2,7 +2,7 @@
 
 import -window root /tmp/screenshot.png
 
-convert /tmp/screenshot.png -blur 0x3 /tmp/screenshotblur.png
+convert /tmp/screenshot.png -blur 0x10 /tmp/screenshotblur.png
 
 rm /tmp/screenshot.png
 
