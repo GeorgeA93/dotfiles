@@ -17,6 +17,3 @@ new-note() {
   cd $HOME/Dev/notes
   vim -c :Goyo $1.md
 }
-
-alias soundre="systemctl --user restart pulseaudio.service"
-alias soundstat="systemctl --user status pulseaudio.service"

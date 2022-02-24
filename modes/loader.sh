@@ -21,12 +21,14 @@ aptfile=$build/apt/aptfile
 aptrepos=$build/apt/aptrepos
 agentconf=$build/gpg/agentconf
 gitconfig=$build/git/gitconfig
+pulseconfig=$build/pulse/pulseconfig
 
 build_output_files=(
   $vimrc $i3 $polybar
   $vimplugins $tmux $zshrc
   $aliases $brewfile $aptfile
   $aptrepos $agentconf $gitconfig
+  $pulseconfig
 )
 
 scripts_to_run=()
@@ -51,6 +53,7 @@ build_path_for_ext() {
     zsh) build_path=$zshrc ;;
     gpg) build_path=$agentconf ;;
     git) build_path=$gitconfig ;;
+    pulse) build_path=$pulseconfig ;;
     aliases) build_path=$aliases ;;
     brew) build_path=$brewfile ;;
     apt) build_path=$aptfile ;;

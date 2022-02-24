@@ -57,6 +57,9 @@ ln -svf $builddir/gpg/agentconf ~/.gnupg/gpg-agent.conf
 # GIT
 ln -svf $builddir/git/gitconfig ~/.gitconfig
 
+# Pulse
+ln -svf $builddir/pulse/pulseconfig ~/.config/pulse/daemon.conf
+
 # OH MY ZSH only if it doesn't exist already
 zsh_dir=$HOME/.oh-my-zsh
 if [[ ! -d "$zsh_dir" ]]; then
