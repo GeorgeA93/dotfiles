@@ -17,6 +17,7 @@ bindsym $mod+q kill
 # Program commands
 bindsym $mod+space exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
+bindsym Control+space exec --no-startup-id rofimoji
 bindsym $mod+p exec terminator -e "source ~/.zshrc && ranger"
 bindsym $mod+g exec google-chrome
 bindsym $mod+Shift+s exec $HOME/dotfiles/bin/lock

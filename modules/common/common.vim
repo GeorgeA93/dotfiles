@@ -34,6 +34,7 @@ set directory=$DOTFILES/build/vim/swapfiles// " Change swapfile location for out
 set timeoutlen=1000 ttimeoutlen=0
 set lazyredraw
 set wrap linebreak nolist
+set re=0
 
 " Change leader to Space
 let g:mapleader = "\<Space>"
