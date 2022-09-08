@@ -1,3 +1,4 @@
+alias python=python3
 alias tl="tmux ls"
 alias tks="tmux kill-server"
 alias tkt="tmux kill-session -t"

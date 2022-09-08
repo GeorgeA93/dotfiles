@@ -7,12 +7,11 @@ fzf
 ale
 completion
 language-client
-snippets
 vim-test
 ruby
 ruby-linting
+ruby-testing
 hub
 typescript
 docker
-dadbod
 nvm

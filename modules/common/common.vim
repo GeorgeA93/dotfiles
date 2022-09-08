@@ -92,6 +92,11 @@ augroup xml_format
   autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 augroup END
 
+augroup j2_ft
+  au!
+  autocmd BufNewFile,BufRead *.html.j2 set filetype=html
+augroup END
+
 " Spelling
 augroup spell_group
     autocmd!
