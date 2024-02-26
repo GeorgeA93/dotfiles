@@ -1,46 +1,10 @@
 #!/bin/bash
 
-usage() {
-  echo "Usage: setup.sh [-d] [-m] [-s]"
-  exit 1
-}
-
-skip_deps=0
-while getopts ":d:m:s:" o; do
-  case "${o}" in
-    d)
-      skip_deps=$OPTARG
-      ;;
-    m)
-      mode=$OPTARG
-      ;;
-    s)
-      skip_scripts=$OPTARG
-      ;;
-    \?)
-      usage
-      ;;
-  esac
-done
-
-if [[ -z "$mode" ]]; then
-  usage
-fi
-
-./modes/loader.sh $mode $skip_deps $skip_scripts
-builddir=$HOME/dotfiles/build
+builddir=$HOME/dotfiles/config
 
 # VIM
 ln -svfn $builddir/vim ~/.vim
 vim +PlugInstall +:qa > /dev/null 2>&1 # Install plugins
-
-# I3
-mkdir -p ~/.config
-mkdir -p ~/.config/i3
-ln -svf $builddir/i3/config ~/.config/i3/config
-
-# POLYBAR
-ln -svf $builddir/polybar/config ~/.config/polybar/config
 
 # ZSH
 ln -svf $builddir/zsh/zshrc ~/.zshrc
@@ -56,9 +20,6 @@ ln -svf $builddir/gpg/agentconf ~/.gnupg/gpg-agent.conf
 
 # GIT
 ln -svf $builddir/git/gitconfig ~/.gitconfig
-
-# Pulse
-ln -svf $builddir/pulse/pulseconfig ~/.config/pulse/daemon.conf
 
 # OH MY ZSH only if it doesn't exist already
 zsh_dir=$HOME/.oh-my-zsh

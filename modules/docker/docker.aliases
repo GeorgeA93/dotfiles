@@ -1,8 +1,0 @@
-alias d="docker"
-alias docker-clean-all='docker stop $(docker container ls -a -q) && docker system prune -a -f --volumes'
-alias docker-clean-container='docker container stop $(docker container ls -a -q) && docker container rm $(docker container ls -a -q)'
-alias docker-remove-images='docker rmi -f $(docker images -a -q)'
-alias dex="docker exec -it"
-alias dps="docker ps"
-alias dce="docker-compose exec"
-alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"

@@ -1,3 +1,5 @@
 *.private
 build
 .DS_Store
+config/vim/swapfiles
+config/vim/swapfiles/

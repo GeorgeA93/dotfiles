@@ -1,0 +1,44 @@
+alias python=python3
+alias tl="tmux ls"
+alias tks="tmux kill-server"
+alias tkt="tmux kill-session -t"
+alias t="tmux"
+alias ts="tmux source-file ~/.tmux.conf"
+alias path="echo $PATH | tr ':' '\n'"
+alias cex="chmod +x"
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+alias gb="git branch --color | cat"
+alias poe=poetry
+
+create-module() {
+  mkdir $DOTFILES/modules/$1
+}
+
+new-note() {
+  mkdir -p $HOME/dev/notes
+  cd $HOME/Dev/notes
+  vim -c :Goyo $1.md
+}
+alias g="git"
+alias gs="git status"
+alias gp="git push"
+alias gcb="git checkout -b"
+alias grom="git fetch && git rebase origin/master --autostash --verbose"
+alias rbc="git rebase --continue"
+alias yolo="git push --force-with-lease"
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
+alias be="bundle exec"
+
+alias diffotest="(cd \$(git rev-parse --show-toplevel) && git diff master --name-only --diff-filter=ACMRTUXB | sed s/app/test/ | sed s/.rb/_test.rb/ | sed s/_test_test.rb/_test.rb/ | xargs bundle exec rails test)"
+
+alias diffocop="(cd \$(git rev-parse --show-toplevel) && git diff master --name-only --diff-filter=ACMRTUXB | xargs bundle exec rubocop)"
+eval "$(hub alias -s zsh)"
+alias d="docker"
+alias docker-clean-all='docker stop $(docker container ls -a -q) && docker system prune -a -f --volumes'
+alias docker-clean-container='docker container stop $(docker container ls -a -q) && docker container rm $(docker container ls -a -q)'
+alias docker-remove-images='docker rmi -f $(docker images -a -q)'
+alias dex="docker exec -it"
+alias dps="docker ps"
+alias dce="docker-compose exec"
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"

@@ -1,6 +1,0 @@
-#!/bin/sh
-
-m1=$(xrandr | grep -w connected | cut -d ' ' -f 1 | head -n 1)
-m2=$(xrandr | grep -w connected | cut -d ' ' -f 1 | tail -n 1)
-
-xrandr --output $m2 --left-of $m1

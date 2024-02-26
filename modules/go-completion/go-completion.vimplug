@@ -1,1 +1,0 @@
-Plug 'zchee/deoplete-go', { 'do': 'make'}

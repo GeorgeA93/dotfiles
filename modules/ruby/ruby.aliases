@@ -1,5 +1,0 @@
-alias be="bundle exec"
-
-alias diffotest="(cd \$(git rev-parse --show-toplevel) && git diff master --name-only --diff-filter=ACMRTUXB | sed s/app/test/ | sed s/.rb/_test.rb/ | sed s/_test_test.rb/_test.rb/ | xargs bundle exec rails test)"
-
-alias diffocop="(cd \$(git rev-parse --show-toplevel) && git diff master --name-only --diff-filter=ACMRTUXB | xargs bundle exec rubocop)"

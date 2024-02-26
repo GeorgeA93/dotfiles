@@ -1,0 +1,150 @@
+set -g default-shell /bin/zsh
+
+set -g prefix C-a
+unbind-key C-b
+bind-key C-a send-prefix
+
+# fix colours
+set -g default-terminal "screen-256color"
+
+# mouse support
+set -g mouse on
+
+# move around panes nicely
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+  | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+
+is_fzf="ps -o state= -o comm= -t '#{pane_tty}' \
+  | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?fzf$'"
+
+bind -n C-h run "($is_vim && tmux send-keys C-h) || \
+                 tmux select-pane -L"
+
+bind -n C-j run "($is_vim && tmux send-keys C-j)  || \
+                 ($is_fzf && tmux send-keys C-j) || \
+                 tmux select-pane -D"
+
+bind -n C-k run "($is_vim && tmux send-keys C-k) || \
+                 ($is_fzf && tmux send-keys C-k)  || \
+                 tmux select-pane -U"
+
+bind -n C-l run "($is_vim && tmux send-keys C-l) || \
+                 tmux select-pane -R"
+
+bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+
+# start window numbers from 1
+set -g base-index 1
+
+# set escape time so vim is responsive inside tmux
+set -g escape-time 1
+
+# prefix r: reload tmux config
+bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
+
+# pane splitting
+bind v split-window -h -c "#{pane_current_path}"
+bind s split-window -v -c "#{pane_current_path}"
+
+# visual notification of activity in other windows
+setw -g monitor-activity off
+set -g visual-activity off
+
+# make iterm window/tab name reflect tmux session
+set-option -g set-titles on
+set-option -g set-titles-string "#T - #W"
+
+# Resize pane shortcuts
+bind -r H resize-pane -L 10
+bind -r J resize-pane -D 10
+bind -r K resize-pane -U 10
+bind -r L resize-pane -R 10
+
+bind -T root F12  \
+  set prefix None \;\
+  set key-table off \;\
+  set-option -g status-style bg=colour01,fg=colour03 \;\
+  if -F '#{pane_in_mode}' 'send-keys -X cancel' \;\
+  refresh-client -S \;\
+
+bind -T off F12 \
+  set -u prefix \;\
+  set -u key-table \;\
+  set -u status-style \;\
+  set -u window-status-current-style \;\
+  set -u window-status-current-format \;\
+  set-option -g status-style bg=colour18,fg=colour03 \;\
+  refresh-client -S
+  
+wg_is_keys_off="#[fg=$color_light,bg=$color_window_off_indicator]#([ $(tmux show-option -qv key-table) = 'off' ] && echo 'OFF')#[default]"
+
+set -g status-right "$wg_is_keys_off #[fg=yellow]%d %b %Y #[fg=green]%l:%M%p"
+
+set -s escape-time 0
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+# Plugin conifg
+set -g @yank_selection_mouse 'clipboard'
+
+# Start up tmux plugin manager
+run -b '~/.tmux/plugins/tpm/tpm'
+# COLOUR (base16)
+
+# This theme is a 256 color variant and it uses the color codes of the base16
+# (256 color) terminal/shell themes:
+# https://github.com/chriskempson/base16
+# https://github.com/chriskempson/base16-shell
+
+# This theme may be used in combination with any base16 256 color
+# terminal/shell theme.
+
+# Base16 Styling Guidelines:
+# base00 - Default Background
+# base01 - Lighter Background (Used for status bars)
+# base02 - Selection Background
+# base03 - Comments, Invisibles, Line Highlighting
+# base04 - Dark Foreground (Used for status bars)
+# base05 - Default Foreground, Caret, Delimiters, Operators
+# base06 - Light Foreground (Not often used)
+# base07 - Light Background (Not often used)
+# base08 - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+# base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url
+# base0A - Classes, Markup Bold, Search Text Background
+# base0B - Strings, Inherited Class, Markup Code, Diff Inserted
+# base0C - Support, Regular Expressions, Escape Characters, Markup Quotes
+# base0D - Functions, Methods, Attribute IDs, Headings
+# base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed
+
+# Use colortest script from base16-shell to get color assignments
+
+# default statusbar colors
+set-option -g status-style bg=colour18,fg=colour03
+set-option -g status-left-style fg=colour04
+
+# default window title colors
+set-window-option -g window-status-style bg=default,fg=colour03
+
+# active window title colors
+set-window-option -g window-status-current-style bg=default,fg=colour02
+
+# pane border
+set-option -g pane-border-style fg=colour18
+set-option -g pane-active-border-style fg=colour19
+
+# message text
+set-option -g message-style bg=colour18,fg=colour07
+
+# pane number display
+set-option -g display-panes-active-colour colour02 # base0B
+set-option -g display-panes-colour colour03 # base0A
+
+# clock
+set-window-option -g clock-mode-colour colour02 #base0B
+
+# bell
+set-window-option -g window-status-bell-style fg=colour18,bg=colour01
+# base01, base 08

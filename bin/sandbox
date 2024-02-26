@@ -1,4 +1,0 @@
-#!/bin/sh
-
-cd $DOTFILES/sandbox
-docker-compose exec dev /bin/bash
