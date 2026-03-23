@@ -1,1 +1,1 @@
-colorscheme cyberdream
+colorscheme base16-eighties
