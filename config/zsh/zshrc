@@ -1,42 +1,64 @@
+# ─── Core Settings ────────────────────────────────────────────────
 export ZSH=$HOME/.oh-my-zsh
 export DOTFILES=$HOME/dotfiles
 export EDITOR='vim'
-
+export MESA_LOADER_DRIVER_OVERRIDE=i965
+export MGFXC_WINE_PATH=$HOME/.winemonogame
 ZSH_THEME="refined"
 KEYTIMEOUT=1
 
+# ─── PATH (single assignment, no repeated exports) ───────────────
+export PATH="\
+/usr/local/bin:\
+/usr/bin:\
+/bin:\
+/usr/sbin:\
+/sbin:\
+/usr/local/sbin:\
+$HOME/.local/bin:\
+$DOTFILES/bin:\
+$HOME/Dev/flutter/bin:\
+/usr/local/opt/mysql@8.0/bin:\
+/usr/local/share/dotnet/x64:\
+$HOME/.yarn/bin:\
+$HOME/.rbenv/shims:\
+$HOME/.rbenv/bin"
+
+# ─── Aliases ─────────────────────────────────────────────────────
 source ~/.aliases
 
-export PATH=""
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/usr/bin"
-export PATH="$PATH:/bin"
-export PATH="$PATH:/usr/sbin"
-export PATH="$PATH:/sbin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$DOTFILES/bin"
-export PATH="$PATH:/usr/local/sbin"
-export PATH="$PATH:/usr/local/share/dotnet"
-export PATH="$PATH:$HOME/.dotnet/tools"
-
-export MESA_LOADER_DRIVER_OVERRIDE=i965
-
+# ─── Oh My Zsh ───────────────────────────────────────────────────
+# Disable automatic updates during shell load (run manually with `omz update`)
+DISABLE_AUTO_UPDATE="true"
+# If you don't use many plugins, list only what you need:
+# plugins=(git)
 source $ZSH/oh-my-zsh.sh
-export PATH="$PATH:$HOME/.yarn/bin"
-export TERM=xterm-256color
 
-BASE16_SHELL=$HOME/.base16-manager/chriskempson/base16-shell
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# ─── rbenv (lazy) ────────────────────────────────────────────────
+# Shims are already on PATH above; this lazy-loads the full init
+# only when you run `rbenv` directly (e.g. `rbenv install`)
+rbenv() {
+  unset -f rbenv
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
 
-base16-manager set eighties
-clear
+# ─── NVM (lazy) ──────────────────────────────────────────────────
+export NVM_DIR="$HOME/.nvm"
+
+_load_nvm() {
+  unset -f nvm node npm npx yarn
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
+}
+
+nvm()  { _load_nvm && nvm  "$@"; }
+node() { _load_nvm && node "$@"; }
+npm()  { _load_nvm && npm  "$@"; }
+npx()  { _load_nvm && npx  "$@"; }
+yarn() { _load_nvm && yarn "$@"; }
+
+# ─── FZF ─────────────────────────────────────────────────────────
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -u -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="$PATH:$HOME/.rbenv/bin"
 
-eval "$(rbenv init -)"
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-
-export MGFXC_WINE_PATH=/Users/georgeallen/.winemonogame
