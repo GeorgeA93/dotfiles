@@ -18,6 +18,10 @@ ln -svf $builddir/tmux/tmux ~/.tmux.conf
 mkdir -p ~/.gnupg
 ln -svf $builddir/gpg/agentconf ~/.gnupg/gpg-agent.conf
 
+# NVIM
+mkdir -p ~/.config
+ln -svfn $builddir/nvim ~/.config/nvim
+
 # GIT
 ln -svf $builddir/git/gitconfig ~/.gitconfig
 

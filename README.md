@@ -7,4 +7,3 @@ git clone https://github.com/GeorgeA93/dotfiles.git
 cd dotfiles
 ./setup.sh
 ```
-
