@@ -34,6 +34,7 @@ o.ttimeoutlen = 0
 o.wrap = true
 o.linebreak = true
 o.list = false
+o.lazyredraw = true
 o.termguicolors = true
 o.signcolumn = "yes"
 o.updatetime = 250

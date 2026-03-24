@@ -135,26 +135,15 @@ return {
     end,
   },
 
-  -- telescope
+  -- fzf (same plugin as Vim)
+  { "junegunn/fzf", build = "./install --bin" },
   {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    keys = { "<leader>p", "<leader>a", "<leader>g", ";" },
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-      defaults = {
-        layout_strategy = "horizontal",
-        layout_config = { height = 0.8, width = 0.9 },
-        mappings = {
-          i = {
-            ["<C-j>"] = "move_selection_next",
-            ["<C-k>"] = "move_selection_previous",
-            ["<C-h>"] = "which_key",
-            ["<C-l>"] = "select_default",
-          },
-        },
-      },
-    },
+    "junegunn/fzf.vim",
+    dependencies = { "junegunn/fzf" },
+    config = function()
+      vim.g.fzf_layout = { down = "~20%" }
+      vim.g.fzf_preview_window = {}
+    end,
   },
 
   -- file tree
@@ -184,7 +173,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       options = {
-        theme = "auto",
+        theme = "base16",
         section_separators = "",
         component_separators = "",
       },
@@ -198,6 +187,32 @@ return {
       },
     },
   },
+
+  -- buffer tabline (matches airline tabline)
+  {
+    "akinsho/bufferline.nvim",
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      options = {
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+        separator_style = "thin",
+      },
+    },
+  },
+
+  -- close buffers without closing windows
+  {
+    "famiu/bufdelete.nvim",
+    cmd = { "Bdelete", "Bwipeout" },
+  },
+
+  -- auto-pairs
+  { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
+
+  -- git
+  { "tpope/vim-fugitive", cmd = { "Git", "G", "Gblame", "Gdiff", "Glog" } },
 
   -- tmux navigation
   { "christoomey/vim-tmux-navigator", lazy = false },

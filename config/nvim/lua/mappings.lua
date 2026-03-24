@@ -4,8 +4,8 @@ local map = vim.keymap.set
 map("n", "<leader>w", ":w!<CR>", { desc = "Fast save" })
 
 -- buffers
-map("n", "<leader>bd", ":bd<CR>", { desc = "Close buffer" })
-map("n", "<leader>ba", ":%bd<CR>", { desc = "Close all buffers" })
+map("n", "<leader>bd", "<cmd>Bdelete<CR>", { desc = "Close buffer (keep window)" })
+map("n", "<leader>ba", "<cmd>bufdo Bdelete<CR>", { desc = "Close all buffers" })
 map("n", "<C-M>", ":bnext<CR>", { desc = "Next buffer" })
 map("n", "<C-P>", ":bprev<CR>", { desc = "Prev buffer" })
 
@@ -31,11 +31,11 @@ map("n", "<Down>", ':echoe "Use j!"<CR>')
 -- upcase word
 map("n", "<leader>u", "gUiw", { desc = "Uppercase word" })
 
--- telescope
-map("n", "<leader>p", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
-map("n", ";", "<cmd>Telescope buffers<CR>", { desc = "List buffers" })
-map("n", "<leader>a", "<cmd>Telescope grep_string<CR>", { desc = "Grep word under cursor" })
-map("n", "<leader>g", "<cmd>Telescope live_grep<CR>", { desc = "Live grep" })
+-- fzf (same commands as vimrc)
+map("n", "<leader>p", "<cmd>Files<CR>", { desc = "Find files" })
+map("n", ";", "<cmd>Buffers<CR>", { desc = "List buffers" })
+map("n", "<leader>a", ":Ag <C-r><C-w><CR>", { desc = "Grep word under cursor" })
+map("n", "<leader>g", "<cmd>Rg<CR>", { desc = "Live grep" })
 
 -- file explorer
 map("n", "<leader>f", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree" })
@@ -51,6 +51,29 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.expandtab = true
   end,
 })
+
+-- command-line path expansions (from vimrc)
+map("c", "%%", "<C-R>=fnameescape(expand('%:h')).'/'<CR>", { desc = "Expand to current dir" })
+map("c", "%f", "<C-R>=fnameescape(expand('%:t'))<CR>", { desc = "Expand to filename" })
+map("c", "%a", "<C-R>=fnameescape(expand('%:p'))<CR>", { desc = "Expand to full path" })
+
+-- alternate file (uses 'alt' command like vimrc)
+map("n", "<leader>t", function()
+  local alt = vim.fn.system("alt " .. vim.fn.expand "%")
+  if alt ~= "" then
+    vim.cmd("e " .. vim.fn.fnameescape(alt:gsub("\n", "")))
+  else
+    print("No alternate file for " .. vim.fn.expand "%")
+  end
+end, { desc = "Open alternate file" })
+
+-- edit macro register
+map("n", "<leader>em", function()
+  local reg = vim.fn.input "Register to edit: "
+  if reg ~= "" then
+    vim.cmd('let @' .. reg .. "=input('Macro: ', @" .. reg .. ")")
+  end
+end, { desc = "Edit macro register" })
 
 -- spelling
 vim.api.nvim_create_autocmd("FileType", {
