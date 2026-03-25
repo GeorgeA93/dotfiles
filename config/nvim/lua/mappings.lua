@@ -37,9 +37,6 @@ map("n", ";", "<cmd>Buffers<CR>", { desc = "List buffers" })
 map("n", "<leader>a", ":Ag <C-r><C-w><CR>", { desc = "Grep word under cursor" })
 map("n", "<leader>g", "<cmd>Rg<CR>", { desc = "Live grep" })
 
--- file explorer
-map("n", "<leader>f", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree" })
-map("n", "<leader>v", "<cmd>NvimTreeFindFile<CR>", { desc = "Find file in tree" })
 
 -- C# file settings
 vim.api.nvim_create_autocmd("FileType", {
@@ -49,6 +46,48 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.shiftwidth = 4
     vim.bo.softtabstop = 0
     vim.bo.expandtab = true
+
+    -- cycle between Tiger{Shared,Client,Server} sibling files
+    -- Shared/BaseFoo.cs → Client/Foo.cs → Server/Foo.cs → Shared/…
+    map("n", "<leader>o", function()
+      local path = vim.fn.expand "%:p"
+      local fname = vim.fn.expand "%:t:r"
+
+      local layer, entity
+      if path:find "TigerShared" then
+        layer = "shared"
+        entity = fname:gsub("^Base", "")
+      elseif path:find "TigerClient" then
+        layer = "client"
+        entity = fname
+      elseif path:find "TigerServer" then
+        layer = "server"
+        entity = fname
+      else
+        print "Not in a Tiger project file"
+        return
+      end
+
+      local root = path:match "(.+)/Tiger%u%a+/"
+      if not root then
+        print "Cannot determine project root"
+        return
+      end
+
+      local cycle = {
+        shared = { dir = "TigerClient", file = entity .. ".cs" },
+        client = { dir = "TigerServer", file = entity .. ".cs" },
+        server = { dir = "TigerShared", file = "Base" .. entity .. ".cs" },
+      }
+
+      local target = cycle[layer]
+      local results = vim.fn.globpath(root .. "/" .. target.dir, "**/" .. target.file, false, true)
+      if #results > 0 then
+        vim.cmd("e " .. vim.fn.fnameescape(results[1]))
+      else
+        print("Not found: " .. target.dir .. "/" .. target.file)
+      end
+    end, { buffer = true, desc = "Cycle Tiger sibling file" })
   end,
 })
 

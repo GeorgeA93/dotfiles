@@ -19,7 +19,7 @@ $HOME/.local/bin:\
 $DOTFILES/bin:\
 $HOME/Dev/flutter/bin:\
 /usr/local/opt/mysql@8.0/bin:\
-/usr/local/share/dotnet/x64:\
+/usr/local/share/dotnet:\
 $HOME/.yarn/bin:\
 $HOME/.rbenv/shims:\
 $HOME/.rbenv/bin"

@@ -149,8 +149,22 @@ return {
   -- file tree
   {
     "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
-    keys = { "<leader>f", "<leader>v" },
+    cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeOpen", "NvimTreeClose" },
+    keys = {
+      {
+        "<leader>f",
+        function()
+          local ok, view = pcall(require, "nvim-tree.view")
+          if ok and view.is_visible() then
+            vim.cmd "NvimTreeClose"
+          else
+            vim.cmd "NvimTreeOpen"
+          end
+        end,
+        desc = "Toggle file tree",
+      },
+      { "<leader>v", "<cmd>NvimTreeFindFile<CR>", desc = "Find file in tree" },
+    },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       view = { width = 30 },
@@ -237,21 +251,16 @@ return {
   -- debug adapter
   {
     "mfussenegger/nvim-dap",
-    dependencies = { "rcarriga/nvim-dap-ui" },
+    event = "VeryLazy",
+    dependencies = { "rcarriga/nvim-dap-ui", "nvim-neotest/nvim-nio" },
     config = function()
       require "configs.nvim-dap"
-    end,
-    event = "VeryLazy",
-  },
-
-  -- debug UI
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-    config = function()
       require "configs.nvim-dap-ui"
     end,
   },
+
+  -- debug UI
+  { "rcarriga/nvim-dap-ui" },
 
   { "nvim-neotest/nvim-nio" },
 
